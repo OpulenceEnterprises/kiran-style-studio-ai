@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -17,15 +16,15 @@ const courseHighlights = [
 const pricingTiers = [
     {
         title: "Beginner's Course",
-        price: "₹10,000",
-        duration: "4 Weeks",
+        price: "₹5,000",
+        duration: "6 Weeks",
         features: ["Introduction to sewing machines", "Basic stitching techniques", "Fabric fundamentals", "Simple garment creation"],
         icon: Scissors,
     },
     {
         title: "Advanced Course",
-        price: "₹25,000",
-        duration: "8 Weeks",
+        price: "₹10,000",
+        duration: "12 Weeks",
         features: ["Advanced pattern making", "Complex garment construction", "Draping and fitting", "Portfolio development"],
         icon: Award,
     },
