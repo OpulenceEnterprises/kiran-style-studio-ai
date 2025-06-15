@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -13,9 +14,10 @@ const TrainingInquiryForm: FC = () => {
     name: "",
     email: "",
     phone: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -24,12 +26,12 @@ const TrainingInquiryForm: FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Training inquiry submitted:", formData);
+    console.log("Inquiry submitted:", formData);
     toast({
       title: "Inquiry Sent!",
-      description: "We've received your inquiry and will get back to you soon.",
+      description: "We've received your inquiry and will reach out to you soon with more options and suggestions.",
     });
-    setFormData({ name: "", email: "", phone: "" });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -81,6 +83,22 @@ const TrainingInquiryForm: FC = () => {
           value={formData.phone}
           onChange={handleChange}
           required
+          className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")}
+        />
+      </div>
+      <div>
+        <label className={cn(
+          "block text-sm font-medium mb-2",
+          isDark ? "text-gray-300" : "text-gray-700"
+        )}>
+          Message (Optional)
+        </label>
+        <Textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Tell us about your specific requirements, preferred timing, or any questions you have..."
+          rows={4}
           className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")}
         />
       </div>

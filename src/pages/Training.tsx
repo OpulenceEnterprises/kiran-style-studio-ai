@@ -112,7 +112,7 @@ const Training = () => {
                                     </CardContent>
                                     <CardFooter>
                                         <Button asChild size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transform hover:scale-105 transition-transform duration-200">
-                                            <a href="#training-form">Enroll Now</a>
+                                            <a href="#training-form">Get More Details</a>
                                         </Button>
                                     </CardFooter>
                                 </Card>
@@ -125,9 +125,9 @@ const Training = () => {
                 <section id="training-form" className="py-20 px-4">
                     <div className="max-w-2xl mx-auto">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4">Register Your Interest</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
                             <p className={cn("text-lg", isDark ? "text-gray-300" : "text-gray-600")}>
-                                Fill out the form below, and we'll contact you with more details about the upcoming batches.
+                                Fill out this form and we'll reach out to you with more available options, suggestions, or to discuss your specific requirements.
                             </p>
                         </div>
                         <TrainingInquiryForm />
