@@ -28,12 +28,39 @@ const Navbar: FC = () => {
         isDark 
           ? "bg-gray-900/90 border-gray-700" 
           : "bg-white/90 border-gray-200",
-        "px-4 md:px-8 py-2",
+        "px-4 md:px-8 py-4",
         "flex items-center justify-between"
       )}>
         {/* Brand */}
-        <a href="/" className="flex items-center">
-          <img src="/lovable-uploads/4c987aac-045b-4cd4-b073-d9073473c678.png" alt="Sui-Dhaga by Kiran Logo" className="h-14" />
+        <a href="/" className="flex items-center gap-3 group">
+          <div className={cn(
+            "w-8 h-8 rounded-lg flex items-center justify-center font-bold text-lg transition-colors",
+            isDark ? "bg-blue-600 text-white" : "bg-blue-600 text-white"
+          )}>
+            S
+          </div>
+          <div className="flex flex-col">
+            <div className="flex items-baseline">
+              <span className={cn(
+                "font-inter text-xl font-bold transition-colors",
+                isDark ? "text-white" : "text-gray-900"
+              )}>
+                {t("brandName")}
+              </span>
+              <span className={cn(
+                "ml-1.5 text-sm font-medium",
+                isDark ? "text-gray-400" : "text-gray-500"
+              )}>
+                {t("byKiran")}
+              </span>
+            </div>
+            <span className={cn(
+              "text-xs font-medium",
+              isDark ? "text-gray-400" : "text-gray-600"
+            )}>
+              {t("brandSubtitle")}
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}
