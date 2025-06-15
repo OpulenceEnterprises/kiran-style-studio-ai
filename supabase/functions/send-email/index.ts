@@ -5,7 +5,7 @@ import { corsHeaders } from '../_shared/cors.ts'
 
 const GMAIL_SENDER = Deno.env.get('GMAIL_SENDER')!
 const GMAIL_APP_PASSWORD = Deno.env.get('GMAIL_APP_PASSWORD')!
-const RECIPIENT_EMAIL = 'suidhaga.empower@gmail.com'
+const RECIPIENT_EMAIL = Deno.env.get('RECIPIENT_EMAIL')!
 
 const client = new SmtpClient()
 
