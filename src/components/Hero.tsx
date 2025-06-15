@@ -21,10 +21,13 @@ const Hero = () => {
       </div>
 
       {/* Blended background image */}
-      <div className={cn(
-        "absolute inset-0 bg-tailoring-pattern mix-blend-overlay",
-        isDark ? "opacity-20" : "opacity-30"
-      )} />
+      <div 
+        className={cn(
+          "absolute inset-0 bg-cover bg-center mix-blend-overlay",
+          isDark ? "opacity-20" : "opacity-30"
+        )} 
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1588194297636-c05298f2b80a?auto=format&fit=crop&w=1950&q=80')" }} 
+      />
 
       <div className="relative max-w-6xl mx-auto text-center">
         <div className="mb-8">
