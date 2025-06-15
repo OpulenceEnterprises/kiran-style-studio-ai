@@ -1,4 +1,3 @@
-
 import { FC, useState } from "react";
 import { Menu, X, Scissors } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -157,7 +156,7 @@ const Navbar: FC = () => {
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </Link>
+              </HashLink>
             ))}
             <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
             <div className="flex items-center gap-4">
