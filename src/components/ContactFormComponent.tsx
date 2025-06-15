@@ -1,4 +1,5 @@
-import { FC } from "react";
+
+import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -52,6 +53,7 @@ const sendEmail = async (formData: ContactFormValues) => {
 const ContactFormComponent: FC = () => {
   const { isDark } = useTheme();
   const { toast } = useToast();
+  const [sent, setSent] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -61,8 +63,10 @@ const ContactFormComponent: FC = () => {
   const mutation = useMutation({
     mutationFn: sendEmail,
     onSuccess: () => {
+      setSent(true);
       toast({ title: "Message Sent!", description: "Thank you for contacting us. We'll get back to you soon." });
       form.reset();
+      setTimeout(() => setSent(false), 5000);
     },
     onError: (error) => {
       toast({ title: "Error", description: error.message, variant: "destructive" });
@@ -134,13 +138,37 @@ const ContactFormComponent: FC = () => {
               </FormItem>
           )} />
 
-          <Button
-            type="submit"
-            disabled={mutation.isPending}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-          >
-            {mutation.isPending ? "Sending..." : <><Send className="w-5 h-5 mr-2" /> Send Message</>}
-          </Button>
+          <div className="flex flex-col items-center">
+            <Button
+              type="submit"
+              disabled={mutation.isPending || sent}
+              className={cn(
+                "w-full text-white text-lg py-6 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105",
+                sent
+                  ? isDark
+                    ? "bg-green-600 cursor-default"
+                    : "bg-green-600 cursor-default"
+                  : "bg-blue-600 hover:bg-blue-700"
+              )}
+            >
+              {mutation.isPending
+                ? "Sending..."
+                : sent
+                  ? "Message Sent!"
+                  : <><Send className="w-5 h-5 mr-2" /> Send Message</>
+              }
+            </Button>
+            {sent && (
+              <div
+                className={cn(
+                  "mt-3 w-full text-center text-green-600 font-semibold animate-fade-in",
+                  isDark ? "text-green-400" : "text-green-600"
+                )}
+              >
+                Thank you! Your message was sent.
+              </div>
+            )}
+          </div>
         </form>
       </Form>
     </div>
@@ -148,3 +176,4 @@ const ContactFormComponent: FC = () => {
 }
 
 export default ContactFormComponent;
+
