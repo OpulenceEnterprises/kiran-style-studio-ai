@@ -136,7 +136,7 @@ const ContactForm: FC = () => {
                       "text-sm",
                       isDark ? "text-gray-300" : "text-gray-600"
                     )}>
-                      123 Fashion Street, City, State
+                      AKBAR PUR, BARH, Bihar 803213
                     </p>
                   </div>
                 </div>
