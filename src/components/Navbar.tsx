@@ -73,7 +73,7 @@ const Navbar: FC = () => {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <a
-              href="#training"
+              href="/training"
               className="btn-primary"
             >
               Join Training
@@ -132,7 +132,7 @@ const Navbar: FC = () => {
               </a>
             ))}
             <a
-              href="#training"
+              href="/training"
               className="btn-primary block text-center"
               onClick={() => setMobileOpen(false)}
             >

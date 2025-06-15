@@ -39,7 +39,7 @@ const Hero = () => {
           <CTAButton href="#contact" variant="primary" className="text-lg px-8 py-4">
             Book Consultation
           </CTAButton>
-          <CTAButton href="#training" variant="primary" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+          <CTAButton href="/training" variant="primary" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
             Join Training Program
           </CTAButton>
           <CTAButton href="#pricing" variant="secondary" className="text-lg px-8 py-4">
