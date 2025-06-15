@@ -1,8 +1,10 @@
+
 import Navbar from "@/components/Navbar";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Award, Users, Clock, Scissors } from "lucide-react";
 import TrainingInquiryForm from "@/components/TrainingInquiryForm";
 
@@ -20,6 +22,7 @@ const pricingTiers = [
         duration: "6 Weeks",
         features: ["Introduction to sewing machines", "Basic stitching techniques", "Fabric fundamentals", "Simple garment creation"],
         icon: Scissors,
+        isPopular: true,
     },
     {
         title: "Advanced Course",
@@ -27,6 +30,7 @@ const pricingTiers = [
         duration: "12 Weeks",
         features: ["Advanced pattern making", "Complex garment construction", "Draping and fitting", "Portfolio development"],
         icon: Award,
+        isPopular: false,
     },
 ];
 
@@ -84,9 +88,14 @@ const Training = () => {
                             const TierIcon = tier.icon;
                             return (
                                 <Card key={tier.title} className={cn(
-                                    "flex flex-col border-2",
+                                    "flex flex-col border-2 relative",
                                     isDark ? "bg-gray-800 border-blue-700/50" : "bg-white border-blue-500/50"
                                 )}>
+                                    {tier.isPopular && (
+                                        <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-1">
+                                            Most Popular
+                                        </Badge>
+                                    )}
                                     <CardHeader>
                                         <div className="flex items-start gap-4">
                                             <div className={cn("p-4 rounded-full", isDark ? "bg-blue-900/30" : "bg-blue-100")}>
