@@ -49,14 +49,14 @@ const Testimonials: FC = () => (
         {testimonials.map((testimonial) => (
           <CarouselItem key={testimonial.name} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1 h-full">
-              <Card className="h-full">
+              <Card className="h-full bg-white dark:bg-gray-800 dark:border-gray-700">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
-                  <Avatar className="w-20 h-20 mb-4 border-2 border-blush-light">
+                  <Avatar className="w-20 h-20 mb-4 border-2 border-primary-500">
                     <AvatarImage src={testimonial.image} alt={testimonial.name} />
                     <AvatarFallback>{testimonial.initials}</AvatarFallback>
                   </Avatar>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <blockquote className="mt-2 text-sm text-gray-700 italic border-l-2 border-teal-light pl-4">
+                  <p className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.name}</p>
+                  <blockquote className="mt-2 text-sm text-gray-700 dark:text-gray-300 italic border-l-2 border-primary-500/50 pl-4">
                     "{testimonial.comment}"
                   </blockquote>
                 </CardContent>
