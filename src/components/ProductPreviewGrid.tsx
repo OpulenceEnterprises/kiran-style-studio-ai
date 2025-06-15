@@ -12,21 +12,21 @@ const featuredProducts = [
     title: "Bridal Lehenga",
     category: "Bridal",
     price: "₹15,000+",
-    img: "https://images.unsplash.com/photo-1519748793657-b6d6c31c0b6e?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1631846999951-f74e36502322?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 2,
     title: "Formal Business Suit",
     category: "Formal",
     price: "₹8,000+",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1574785422324-4093b5db4607?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 3,
     title: "Designer Kurti",
     category: "Custom",
     price: "₹1,200+",
-    img: "https://images.unsplash.com/photo-1530845645112-0f7c1f1ab7d5?auto=format&fit=crop&w=600&q=80",
+    img: "https://images.unsplash.com/photo-1617019772535-983b6329243a?auto=format&fit=crop&w=600&q=80",
   },
 ];
 

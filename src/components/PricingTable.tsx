@@ -3,39 +3,45 @@ import { FC } from "react";
 import SectionHeader from "./SectionHeader";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Shirt, Scissors, Tag, Zap } from "lucide-react";
 
 const pricing = [
   {
     service: "Blouse Stitching",
     description: "Classic or designer tailoring included.",
     price: "₹550",
+    icon: Shirt,
   },
   {
     service: "Saree Fall & Pico",
     description: "Perfect finish for all sarees.",
     price: "₹180",
+    icon: Tag,
   },
   {
     service: "Kurti/Punjabi Suit",
     description: "Custom-fit, with lining if needed.",
     price: "₹400 - ₹700",
+    icon: Shirt,
   },
   {
     service: "School Uniform (Set)",
     description: "Durable, comfortable, any pattern.",
     price: "₹750+",
+    icon: Shirt,
   },
   {
     service: "Dress Alteration",
     description: "Shortening, letting in/out, resizing.",
     price: "₹120+",
+    icon: Scissors,
   },
   {
     service: "Urgent Order Uplift",
     description: "Get it ready in 24 hrs (add-on).",
     price: "+30%",
-  }
+    icon: Zap,
+  },
 ];
 
 const PricingTable: FC = () => {
@@ -90,7 +96,10 @@ const PricingTable: FC = () => {
                       "py-4 px-4 font-semibold",
                       isDark ? "text-white" : "text-gray-900"
                     )}>
-                      {p.service}
+                      <div className="flex items-center gap-3">
+                        <p.icon className={cn("w-5 h-5", isDark ? "text-blue-400" : "text-blue-600")} />
+                        <span>{p.service}</span>
+                      </div>
                     </td>
                     <td className={cn(
                       "py-4 px-4",
