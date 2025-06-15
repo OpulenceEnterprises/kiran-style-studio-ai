@@ -1,9 +1,9 @@
-
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Scissors } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Whatsapp } from "./Whatsapp";
 import SectionHeader from "./SectionHeader";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
@@ -32,6 +32,8 @@ const featuredProductsData = [
   },
 ];
 
+const WHATSAPP_NUMBER = "911234567890"; // Please replace with your WhatsApp number
+
 const ProductPreviewGrid: FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
@@ -52,54 +54,64 @@ const ProductPreviewGrid: FC = () => {
       />
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {featuredProducts.map((product) => (
-          <div
-            key={product.id}
-            className={cn(
-              "card-professional overflow-hidden group",
-              isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
-            )}
-          >
-            <div className="aspect-square overflow-hidden">
-              <img
-                src={product.img}
-                alt={product.title}
-                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                loading="lazy"
-              />
-            </div>
-            
-            <div className="p-6">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <h3 className={cn(
-                    "font-semibold text-lg mb-2",
-                    isDark ? "text-white" : "text-gray-900"
-                  )}>
-                    {product.title}
-                  </h3>
-                  <span className={cn(
-                    "text-xs px-3 py-1 rounded-full",
-                    isDark ? "bg-blue-900/50 text-blue-400" : "bg-blue-100 text-blue-700"
-                  )}>
-                    {product.category}
-                  </span>
-                </div>
-                <div className={cn(
-                  "font-bold text-lg",
-                  isDark ? "text-blue-400" : "text-blue-600"
-                )}>
-                  {product.price}
-                </div>
+        {featuredProducts.map((product) => {
+          const message = `Hello, I would like to request a custom order for the following product: ${product.title}.`;
+          const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+          return (
+            <div
+              key={product.id}
+              className={cn(
+                "card-professional overflow-hidden group",
+                isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
+              )}
+            >
+              <div className="aspect-square overflow-hidden">
+                <img
+                  src={product.img}
+                  alt={product.title}
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
               </div>
               
-              <button className="btn-primary w-full flex items-center justify-center gap-2">
-                <Scissors size={18} />
-                {t('requestCustomOrder')}
-              </button>
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 className={cn(
+                      "font-semibold text-lg mb-2",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}>
+                      {product.title}
+                    </h3>
+                    <span className={cn(
+                      "text-xs px-3 py-1 rounded-full",
+                      isDark ? "bg-blue-900/50 text-blue-400" : "bg-blue-100 text-blue-700"
+                    )}>
+                      {product.category}
+                    </span>
+                  </div>
+                  <div className={cn(
+                    "font-bold text-lg",
+                    isDark ? "text-blue-400" : "text-blue-600"
+                  )}>
+                    {product.price}
+                  </div>
+                </div>
+                
+                <a 
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full flex items-center justify-center gap-2"
+                >
+                  <Whatsapp className="h-5 w-5" />
+                  {t('requestCustomOrder')}
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="text-center">

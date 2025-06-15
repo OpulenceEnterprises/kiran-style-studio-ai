@@ -1,3 +1,4 @@
+
 import { FC, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -6,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 import Navbar from "@/components/Navbar";
+import { Whatsapp } from "@/components/Whatsapp";
 
 const categories = [
   { labelKey: "all", filterValue: "All" },
@@ -83,6 +85,8 @@ const allProductsData = [
   },
 ];
 
+const WHATSAPP_NUMBER = "911234567890"; // Please replace with your WhatsApp number
+
 const Products: FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
@@ -155,7 +159,10 @@ const Products: FC = () => {
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product) => {
+              const message = `Hello, I would like to request a custom order for the following product: ${product.title}.`;
+              const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+              return (
               <div
                 key={product.id}
                 className={cn(
@@ -204,12 +211,18 @@ const Products: FC = () => {
                     {product.description}
                   </p>
                   
-                  <button className="btn-primary w-full">
+                  <a 
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary w-full flex items-center justify-center gap-2"
+                  >
+                    <Whatsapp className="h-5 w-5" />
                     {t('requestCustomOrder')}
-                  </button>
+                  </a>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </div>
