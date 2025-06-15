@@ -1,8 +1,8 @@
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import ProductPreviewGrid from "@/components/ProductPreviewGrid";
+import PricingTable from "@/components/PricingTable";
 
 const Index = () => {
   return (
@@ -15,8 +15,9 @@ const Index = () => {
         <Hero />
         <Testimonials />
         <ProductPreviewGrid />
+        <PricingTable />
 
-        {/* More sections coming soon (Pricing, Training, Contact, AI Assistant etc.) */}
+        {/* More sections coming soon (Training, Contact, AI Assistant etc.) */}
         <section className="mt-8 mb-16 text-center">
           <div className="max-w-xl mx-auto text-gray-400 italic font-poppins py-10 rounded-2xl">
             <span>
