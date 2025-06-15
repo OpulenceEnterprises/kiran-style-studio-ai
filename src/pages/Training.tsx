@@ -39,7 +39,7 @@ const Training = () => {
         <div className={cn("transition-colors duration-300", isDark ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900")}>
             {/* Hero Section */}
             <section className={cn(
-                "py-20 px-4",
+                "pt-12 pb-20 px-4",
                 isDark ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" : "bg-gradient-to-br from-gray-50 via-white to-gray-100"
             )}>
                 <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
