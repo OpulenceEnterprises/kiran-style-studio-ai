@@ -7,13 +7,13 @@ export const translations = {
     products: "Products",
     contact: "Contact",
     joinTraining: "Learn Sewing",
-    brandName: "Sui Dhaga",
-    brandSubtitle: "Professional Tailoring",
+    brandName: "Sui Dhaga by Kiran",
+    brandSubtitle: "Where Every Stitch Empowers",
 
     // Hero Section
-    heroTitle1: "Professional Tailoring &",
-    heroTitle2: "Sewing Excellence",
-    heroSubtitle: "Master craftsmanship meets modern techniques. From bespoke wedding attire to everyday alterations, we deliver precision and style.",
+    heroTitle1: "Stitching Dreams,",
+    heroTitle2: "Empowering Futures",
+    heroSubtitle: "Discover handcrafted apparel and learn the art of tailoring at our women-led center. Every stitch tells a story of skill and empowerment.",
     bookConsultation: "Book Consultation",
     joinTrainingProgram: "Learn Sewing",
     viewPricing: "View Pricing",
@@ -61,7 +61,7 @@ export const translations = {
     aboutSubtitle: "The heart and soul of Sui Dhaga.",
     aboutParagraph1: "With over 15 years of dedicated experience, Kiran Devi is a master of the sewing craft. Her journey began with a simple passion for creating beautiful garments, which has blossomed into a renowned studio known for its quality and precision.",
     aboutParagraph2: "Kiran's expertise lies in her ability to blend traditional techniques with modern fashion sensibilities. She believes that every piece of clothing should be a work of art, perfectly tailored to fit the individual's body and personality.",
-    aboutParagraph3: "At Kiran's Studio, you're not just getting a service; you're getting a piece of Kiran's lifelong dedication and passion for excellence in tailoring.",
+    aboutParagraph3: "At Sui Dhaga, you're not just getting a service; you're joining a community dedicated to empowering women through the beautiful craft of tailoring. Kiran's passion is to share her skills and help other women build a confident, independent future.",
   },
   hi: {
     // Navbar
@@ -70,13 +70,13 @@ export const translations = {
     products: "उत्पाद",
     contact: "संपर्क",
     joinTraining: "सिलाई सीखें",
-    brandName: "सुई धागा",
-    brandSubtitle: "पेशेवर सिलाई",
+    brandName: "सुई धागा by किरण",
+    brandSubtitle: "जहाँ हर सिलाई सशक्त बनाती है",
 
     // Hero Section
-    heroTitle1: "पेशेवर सिलाई और",
-    heroTitle2: "सिलाई में उत्कृष्टता",
-    heroSubtitle: "आधुनिक तकनीकों के साथ विशेषज्ञ शिल्प कौशल। विशेष शादी की पोशाक से लेकर रोजमर्रा के बदलाव तक, हम सटीकता और शैली प्रदान करते हैं।",
+    heroTitle1: "सपनों को सिलना,",
+    heroTitle2: "भविष्य को सशक्त बनाना",
+    heroSubtitle: "हमारे महिला-नेतृत्व वाले केंद्र में हस्तनिर्मित परिधान खोजें और सिलाई की कला सीखें। हर सिलाई कौशल और सशक्तिकरण की कहानी कहती है।",
     bookConsultation: "परामर्श बुक करें",
     joinTrainingProgram: "सिलाई सीखें",
     viewPricing: "कीमतें देखें",
@@ -124,7 +124,7 @@ export const translations = {
     aboutSubtitle: "सुई धागा की दिल और आत्मा।",
     aboutParagraph1: "15 से अधिक वर्षों के समर्पित अनुभव के साथ, किरण देवी सिलाई कला की माहिर हैं। उनकी यात्रा सुंदर वस्त्र बनाने के एक साधारण जुनून के साथ शुरू हुई, जो अब गुणवत्ता और सटीकता के लिए जाने जाने वाले एक प्रसिद्ध स्टूडियो में बदल गई है।",
     aboutParagraph2: "किरण की विशेषज्ञता पारंपरिक तकनीकों को आधुनिक फैशन संवेदनाओं के साथ मिलाने की उनकी क्षमता में निहित है। उनका मानना है कि कपड़ों का हर टुकड़ा कला का एक काम होना चाहिए, जो व्यक्ति के शरीर और व्यक्तित्व के अनुरूप पूरी तरह से तैयार किया गया हो।",
-    aboutParagraph3: "किरण के स्टूडियो में, आपको सिर्फ एक सेवा नहीं मिल रही है; आपको किरण के आजीवन समर्पण और सिलाई में उत्कृष्टता के जुनून का एक टुकड़ा मिल रहा है।",
+    aboutParagraph3: "सुई धागा में, आपको केवल एक सेवा नहीं मिल रही है; आप एक ऐसे समुदाय में शामिल हो रहे हैं जो सिलाई की सुंदर कला के माध्यम से महिलाओं को सशक्त बनाने के लिए समर्पित है। किरण का जुनून अपने कौशल को साझा करना और अन्य महिलाओं को एक आत्मविश्वास से भरा, स्वतंत्र भविष्य बनाने में मदद करना है।",
   },
   hn: {
     // Navbar
@@ -133,13 +133,13 @@ export const translations = {
     products: "Products",
     contact: "Contact",
     joinTraining: "Silai Seekhein",
-    brandName: "Sui Dhaga",
-    brandSubtitle: "Professional Tailoring",
+    brandName: "Sui Dhaga by Kiran",
+    brandSubtitle: "Jahaan Har Stitch Empower Karta Hai",
 
     // Hero Section
-    heroTitle1: "Professional Tailoring aur",
-    heroTitle2: "Behtareen Silai",
-    heroSubtitle: "Master karigari modern techniques ke saath. Khaas shaadi ke kapdon se lekar rozmarra ke alterations tak, hum precision aur style dete hain.",
+    heroTitle1: "Sapne Silna,",
+    heroTitle2: "Bhavishya Empower Karna",
+    heroSubtitle: "Hamare women-led center mein handcrafted kapde dekhein aur tailoring ki kala seekhein. Har stitch skill aur empowerment ki kahani batata hai.",
     bookConsultation: "Consultation Book Karein",
     joinTrainingProgram: "Silai Seekhein",
     viewPricing: "Pricing Dekhein",
@@ -187,7 +187,7 @@ export const translations = {
     aboutSubtitle: "Sui Dhaga ki dil aur aatma.",
     aboutParagraph1: "15 saal se zyada ke anubhav ke saath, Kiran Devi silai kala ki ustaad hain. Unka safar khoobsurat kapde banane ke ek saral junoon se shuru hua, jo ab quality aur precision ke liye mashhoor ek studio ban gaya hai.",
     aboutParagraph2: "Kiran ki maharat traditional techniques ko modern fashion sensibilities ke saath milane ki unki kshamata mein hai. Vah maanti hain ki har kapda ek kala ka kaam hona chahiye, jo vyakti ke shareer aur vyaktitva ke anuroop bilkul theek ho.",
-    aboutParagraph3: "Kiran's Studio mein, aapko sirf ek service nahi mil rahi hai; aapko Kiran ke jeevan bhar ke samarpan aur tailoring mein utkrishtata ke junoon ka ek hissa mil raha hai.",
+    aboutParagraph3: "Sui Dhaga mein, aapko sirf ek service nahi mil rahi hai; aap ek aisi community mein shamil ho rahe hain jo tailoring ke khoobsurat craft ke zariye mahilaon ko empower karne ke liye samarpit hai. Kiran ka passion apni skills ko share karna aur doosri mahilaon ko ek confident, independent future banane mein madad karna hai.",
   },
 };
 
