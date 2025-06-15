@@ -104,7 +104,7 @@ const Navbar: FC = () => {
                     <Whatsapp className="h-6 w-6" />
                 </a>
             </Button>
-            <Button asChild className="font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+            <Button asChild className="font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
               <a href="/training">
                 <Scissors />
                 <span>{t("joinTraining")}</span>
@@ -165,7 +165,7 @@ const Navbar: FC = () => {
               </a>
               <Button
                 asChild
-                className="flex-1 font-semibold"
+                className="flex-1 font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 shadow-md"
                 onClick={() => setMobileOpen(false)}
               >
                 <a href="/training">
