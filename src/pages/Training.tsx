@@ -56,10 +56,10 @@ const Training = () => {
                                 Join our professional training program and turn your passion into a profession. Learn from expert tailors in a supportive environment.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3">
+                                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3">
                                     <a href="#training-form">Start Learning Today</a>
                                 </Button>
-                                <Button variant="outline" size="lg" className="font-semibold px-8 py-3">
+                                <Button asChild variant="outline" size="lg" className="font-semibold px-8 py-3">
                                     <a href="#training-pricing">View Courses</a>
                                 </Button>
                             </div>
