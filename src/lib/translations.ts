@@ -1,3 +1,4 @@
+
 export const translations = {
   en: {
     // Navbar
@@ -6,7 +7,7 @@ export const translations = {
     products: "Products",
     contact: "Contact",
     joinTraining: "Learn Sewing",
-    brandName: "Kiran's Studio",
+    brandName: "Sui Dhaga",
     brandSubtitle: "Professional Tailoring",
 
     // Hero Section
@@ -57,7 +58,7 @@ export const translations = {
     // About Page
     aboutUs: "About Us",
     aboutTitle: "Meet Our Founder, Kiran Devi",
-    aboutSubtitle: "The heart and soul of Kiran's Studio.",
+    aboutSubtitle: "The heart and soul of Sui Dhaga.",
     aboutParagraph1: "With over 15 years of dedicated experience, Kiran Devi is a master of the sewing craft. Her journey began with a simple passion for creating beautiful garments, which has blossomed into a renowned studio known for its quality and precision.",
     aboutParagraph2: "Kiran's expertise lies in her ability to blend traditional techniques with modern fashion sensibilities. She believes that every piece of clothing should be a work of art, perfectly tailored to fit the individual's body and personality.",
     aboutParagraph3: "At Kiran's Studio, you're not just getting a service; you're getting a piece of Kiran's lifelong dedication and passion for excellence in tailoring.",
@@ -69,7 +70,7 @@ export const translations = {
     products: "उत्पाद",
     contact: "संपर्क",
     joinTraining: "सिलाई सीखें",
-    brandName: "किरण का स्टूडियो",
+    brandName: "सुई धागा",
     brandSubtitle: "पेशेवर सिलाई",
 
     // Hero Section
@@ -120,7 +121,7 @@ export const translations = {
     // About Page
     aboutUs: "हमारे बारे में",
     aboutTitle: "मिलिए हमारी संस्थापक, किरण देवी से",
-    aboutSubtitle: "किरण के स्टूडियो की दिल और आत्मा।",
+    aboutSubtitle: "सुई धागा की दिल और आत्मा।",
     aboutParagraph1: "15 से अधिक वर्षों के समर्पित अनुभव के साथ, किरण देवी सिलाई कला की माहिर हैं। उनकी यात्रा सुंदर वस्त्र बनाने के एक साधारण जुनून के साथ शुरू हुई, जो अब गुणवत्ता और सटीकता के लिए जाने जाने वाले एक प्रसिद्ध स्टूडियो में बदल गई है।",
     aboutParagraph2: "किरण की विशेषज्ञता पारंपरिक तकनीकों को आधुनिक फैशन संवेदनाओं के साथ मिलाने की उनकी क्षमता में निहित है। उनका मानना है कि कपड़ों का हर टुकड़ा कला का एक काम होना चाहिए, जो व्यक्ति के शरीर और व्यक्तित्व के अनुरूप पूरी तरह से तैयार किया गया हो।",
     aboutParagraph3: "किरण के स्टूडियो में, आपको सिर्फ एक सेवा नहीं मिल रही है; आपको किरण के आजीवन समर्पण और सिलाई में उत्कृष्टता के जुनून का एक टुकड़ा मिल रहा है।",
@@ -132,7 +133,7 @@ export const translations = {
     products: "Products",
     contact: "Contact",
     joinTraining: "Silai Seekhein",
-    brandName: "Kiran's Studio",
+    brandName: "Sui Dhaga",
     brandSubtitle: "Professional Tailoring",
 
     // Hero Section
@@ -183,7 +184,7 @@ export const translations = {
     // About Page
     aboutUs: "Hamare Bare Mein",
     aboutTitle: "Miliye Hamari Founder, Kiran Devi se",
-    aboutSubtitle: "Kiran's Studio ki dil aur aatma.",
+    aboutSubtitle: "Sui Dhaga ki dil aur aatma.",
     aboutParagraph1: "15 saal se zyada ke anubhav ke saath, Kiran Devi silai kala ki ustaad hain. Unka safar khoobsurat kapde banane ke ek saral junoon se shuru hua, jo ab quality aur precision ke liye mashhoor ek studio ban gaya hai.",
     aboutParagraph2: "Kiran ki maharat traditional techniques ko modern fashion sensibilities ke saath milane ki unki kshamata mein hai. Vah maanti hain ki har kapda ek kala ka kaam hona chahiye, jo vyakti ke shareer aur vyaktitva ke anuroop bilkul theek ho.",
     aboutParagraph3: "Kiran's Studio mein, aapko sirf ek service nahi mil rahi hai; aapko Kiran ke jeevan bhar ke samarpan aur tailoring mein utkrishtata ke junoon ka ek hissa mil raha hai.",

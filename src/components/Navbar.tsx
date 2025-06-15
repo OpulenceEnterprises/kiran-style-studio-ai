@@ -1,4 +1,3 @@
-
 import { FC, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -38,7 +37,7 @@ const Navbar: FC = () => {
             "w-8 h-8 rounded-lg flex items-center justify-center font-bold text-lg transition-colors",
             isDark ? "bg-blue-600 text-white" : "bg-blue-600 text-white"
           )}>
-            K
+            S
           </div>
           <div className="flex flex-col">
             <span className={cn(
@@ -174,4 +173,3 @@ const Navbar: FC = () => {
 };
 
 export default Navbar;
-
