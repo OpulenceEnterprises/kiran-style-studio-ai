@@ -12,6 +12,8 @@ import Training from "./pages/Training";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import FloatingActionButtons from "./components/FloatingActionButtons";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +26,8 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <div className="flex flex-col min-h-screen">
-                <main className="flex-grow pt-24">
+                <Navbar />
+                <main className="flex-grow pt-20">
                     <Routes>
                     <Route path="/" element={<Index />} />
                     <Route path="/products" element={<Products />} />
@@ -35,6 +38,7 @@ const App = () => (
                     </Routes>
                 </main>
                 <FloatingActionButtons />
+                <Footer />
             </div>
           </BrowserRouter>
         </TooltipProvider>
