@@ -2,9 +2,11 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import CTAButton from "./CTAButton";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <section className={cn(
@@ -24,26 +26,26 @@ const Hero = () => {
             "text-4xl md:text-6xl font-bold mb-6 leading-tight",
             isDark ? "text-white" : "text-gray-900"
           )}>
-            Professional Tailoring &<br />
-            <span className="text-blue-600">Sewing Excellence</span>
+            {t("heroTitle1")}<br />
+            <span className="text-blue-600">{t("heroTitle2")}</span>
           </h1>
           <p className={cn(
             "text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed",
             isDark ? "text-gray-300" : "text-gray-700"
           )}>
-            Master craftsmanship meets modern techniques. From bespoke wedding attire to everyday alterations, we deliver precision and style.
+            {t("heroSubtitle")}
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <CTAButton href="#contact" variant="primary" className="text-lg px-8 py-4">
-            Book Consultation
+            {t("bookConsultation")}
           </CTAButton>
           <CTAButton href="/training" variant="primary" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-            Join Training Program
+            {t("joinTrainingProgram")}
           </CTAButton>
           <CTAButton href="#pricing" variant="secondary" className="text-lg px-8 py-4">
-            View Pricing
+            {t("viewPricing")}
           </CTAButton>
         </div>
 
@@ -67,7 +69,7 @@ const Hero = () => {
             "mt-4 text-sm",
             isDark ? "text-gray-400" : "text-gray-600"
           )}>
-            Meet Your Expert Tailor | Studio Showcase
+            {t("videoCaption")}
           </p>
         </div>
       </div>

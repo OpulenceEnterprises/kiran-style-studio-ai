@@ -4,17 +4,20 @@ import { MessageCircle, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/contexts/ThemeContext";
 import ThemeToggle from "./ThemeToggle";
-
-const links = [
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Products", href: "#products" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar: FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+
+  const links = [
+    { label: t("services"), href: "#services" },
+    { label: t("pricing"), href: "#pricing" },
+    { label: t("products"), href: "#products" },
+    { label: t("contact"), href: "#contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
@@ -39,13 +42,13 @@ const Navbar: FC = () => {
               "font-inter text-xl font-bold transition-colors",
               isDark ? "text-white" : "text-gray-900"
             )}>
-              Kiran's Studio
+              {t("brandName")}
             </span>
             <span className={cn(
               "text-xs font-medium",
               isDark ? "text-gray-400" : "text-gray-600"
             )}>
-              Professional Tailoring
+              {t("brandSubtitle")}
             </span>
           </div>
         </a>
@@ -54,7 +57,7 @@ const Navbar: FC = () => {
         <div className="hidden md:flex items-center gap-8">
           <ul className="flex gap-6 items-center">
             {links.map((link) => (
-              <li key={link.label}>
+              <li key={link.href}>
                 <a
                   href={link.href}
                   className={cn(
@@ -70,13 +73,14 @@ const Navbar: FC = () => {
             ))}
           </ul>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
             <ThemeToggle />
             <a
               href="/training"
               className="btn-primary"
             >
-              Join Training
+              {t("joinTraining")}
             </a>
             <a
               href="https://wa.me/919999999999"
@@ -96,6 +100,7 @@ const Navbar: FC = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -118,7 +123,7 @@ const Navbar: FC = () => {
           <div className="px-4 py-6 space-y-4">
             {links.map((link) => (
               <a
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className={cn(
                   "block py-3 px-4 rounded-lg font-medium transition-colors",
@@ -136,7 +141,7 @@ const Navbar: FC = () => {
               className="btn-primary block text-center"
               onClick={() => setMobileOpen(false)}
             >
-              Join Training
+              {t("joinTraining")}
             </a>
           </div>
         </div>
