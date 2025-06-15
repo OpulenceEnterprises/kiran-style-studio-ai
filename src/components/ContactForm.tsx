@@ -1,33 +1,76 @@
-import { FC, useState } from "react";
+
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
-import { Send, Phone, Mail, MapPin } from "lucide-react";
+import { Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { useToast } from "@/components/ui/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { supabase } from "@/lib/supabaseClient";
+import ContactInfo from "./ContactInfo";
+
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  service: z.string().optional(),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+const sendEmail = async (formData: ContactFormValues) => {
+  const htmlBody = `
+    <p><strong>Name:</strong> ${formData.name}</p>
+    <p><strong>Phone:</strong> ${formData.phone}</p>
+    <p><strong>Email:</strong> ${formData.email}</p>
+    <p><strong>Service:</strong> ${formData.service || 'Not specified'}</p>
+    <p><strong>Message:</strong></p>
+    <p>${formData.message.replace(/\n/g, "<br>")}</p>
+  `;
+
+  const { error } = await supabase.functions.invoke('send-email', {
+    body: JSON.stringify({
+      subject: 'New Contact Form Submission from Website',
+      htmlBody,
+      fromName: formData.name,
+      fromEmail: formData.email,
+    }),
+  });
+
+  if (error) {
+    throw new Error(`Failed to send email: ${error.message}`);
+  }
+};
 
 const ContactForm: FC = () => {
   const { isDark } = useTheme();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: ""
+  const { toast } = useToast();
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: { name: "", phone: "", email: "", service: "", message: "" },
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const mutation = useMutation({
+    mutationFn: sendEmail,
+    onSuccess: () => {
+      toast({ title: "Message Sent!", description: "Thank you for contacting us. We'll get back to you soon." });
+      form.reset();
+    },
+    onError: (error) => {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    // You can add actual form submission logic here
+  const onSubmit = (data: ContactFormValues) => {
+    mutation.mutate(data);
   };
 
   return (
@@ -52,261 +95,76 @@ const ContactForm: FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className={cn(
-                "text-2xl font-semibold mb-6",
-                isDark ? "text-white" : "text-gray-900"
-              )}>
-                Contact Information
-              </h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className={cn(
-                    "p-3 rounded-lg",
-                    isDark ? "bg-blue-900/50" : "bg-blue-100"
-                  )}>
-                    <Phone className={cn(
-                      "w-5 h-5",
-                      isDark ? "text-blue-400" : "text-blue-600"
-                    )} />
-                  </div>
-                  <div>
-                    <p className={cn(
-                      "font-medium",
-                      isDark ? "text-white" : "text-gray-900"
-                    )}>
-                      Phone
-                    </p>
-                    <p className={cn(
-                      "text-sm",
-                      isDark ? "text-gray-300" : "text-gray-600"
-                    )}>
-                      +91 9263267023
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className={cn(
-                    "p-3 rounded-lg",
-                    isDark ? "bg-blue-900/50" : "bg-blue-100"
-                  )}>
-                    <Mail className={cn(
-                      "w-5 h-5",
-                      isDark ? "text-blue-400" : "text-blue-600"
-                    )} />
-                  </div>
-                  <div>
-                    <p className={cn(
-                      "font-medium",
-                      isDark ? "text-white" : "text-gray-900"
-                    )}>
-                      Email
-                    </p>
-                    <p className={cn(
-                      "text-sm",
-                      isDark ? "text-gray-300" : "text-gray-600"
-                    )}>
-                      suidhaga.empower@gmail.com
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className={cn(
-                    "p-3 rounded-lg",
-                    isDark ? "bg-blue-900/50" : "bg-blue-100"
-                  )}>
-                    <MapPin className={cn(
-                      "w-5 h-5",
-                      isDark ? "text-blue-400" : "text-blue-600"
-                    )} />
-                  </div>
-                  <div>
-                    <p className={cn(
-                      "font-medium",
-                      isDark ? "text-white" : "text-gray-900"
-                    )}>
-                      Location
-                    </p>
-                    <p className={cn(
-                      "text-sm",
-                      isDark ? "text-gray-300" : "text-gray-600"
-                    )}>
-                      AKBAR PUR, BARH, Bihar 803213
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className={cn(
-              "p-6 rounded-xl border",
-              isDark ? "bg-gray-800/50 border-gray-700" : "bg-blue-50 border-blue-200"
-            )}>
-              <h4 className={cn(
-                "font-semibold mb-2",
-                isDark ? "text-white" : "text-gray-900"
-              )}>
-                Business Hours
-              </h4>
-              <div className={cn(
-                "text-sm space-y-1",
-                isDark ? "text-gray-300" : "text-gray-600"
-              )}>
-                <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
-                <p>Sunday: 10:00 AM - 5:00 PM</p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className={cn(
-                "text-2xl font-semibold mb-6",
-                isDark ? "text-white" : "text-gray-900"
-              )}>
-                Find Us Here
-              </h3>
-              <div className={cn(
-                "rounded-xl overflow-hidden shadow-lg border",
-                isDark ? "border-gray-700" : "border-gray-300"
-              )}>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.386347410197!2d85.68579319999999!3d25.458771700000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f27d71449c3d45%3A0xaf24bd79201e4ca8!2sKiran%27%20Tailoring%20Shop!5e0!3m2!1sen!2sin!4v1749975411879!5m2!1sen!2sin"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Kiran's Tailoring Shop Location"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
+          <ContactInfo />
           <div className={cn(
             "p-8 rounded-xl border",
             isDark ? "bg-gray-800/50 border-gray-700" : "bg-gray-50 border-gray-200"
           )}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className={cn(
-                    "block text-sm font-medium mb-2",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    Full Name *
-                  </label>
-                  <Input
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className={cn(
-                      isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white"
-                    )}
-                  />
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <FormField control={form.control} name="name" render={({ field }) => (
+                      <FormItem>
+                          <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Full Name *</FormLabel>
+                          <FormControl>
+                              <Input {...field} className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")} />
+                          </FormControl>
+                          <FormMessage />
+                      </FormItem>
+                  )} />
+                  <FormField control={form.control} name="phone" render={({ field }) => (
+                      <FormItem>
+                          <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Phone Number *</FormLabel>
+                          <FormControl>
+                              <Input type="tel" {...field} className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")} />
+                          </FormControl>
+                          <FormMessage />
+                      </FormItem>
+                  )} />
                 </div>
-                
-                <div>
-                  <label className={cn(
-                    "block text-sm font-medium mb-2",
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  )}>
-                    Phone Number *
-                  </label>
-                  <Input
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className={cn(
-                      isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white"
-                    )}
-                  />
-                </div>
-              </div>
+                <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                        <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Email Address *</FormLabel>
+                        <FormControl>
+                            <Input type="email" {...field} className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                )} />
+                <FormField control={form.control} name="service" render={({ field }) => (
+                    <FormItem>
+                        <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Service Interested In</FormLabel>
+                          <select {...field} className={cn("w-full p-3 rounded-md border transition-colors", isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white border-gray-300")}>
+                              <option value="">Select a service</option>
+                              <option value="bridal">Bridal Wear</option>
+                              <option value="formal">Formal Wear</option>
+                              <option value="casual">Casual Wear</option>
+                              <option value="alterations">Alterations</option>
+                              <option value="uniform">Uniforms</option>
+                              <option value="custom">Custom Design</option>
+                          </select>
+                        <FormMessage />
+                    </FormItem>
+                )} />
+                <FormField control={form.control} name="message" render={({ field }) => (
+                    <FormItem>
+                        <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Message *</FormLabel>
+                        <FormControl>
+                            <Textarea rows={4} placeholder="Tell us about your project, timeline, and any specific requirements..." {...field} className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")} />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                )} />
 
-              <div>
-                <label className={cn(
-                  "block text-sm font-medium mb-2",
-                  isDark ? "text-gray-300" : "text-gray-700"
-                )}>
-                  Email Address *
-                </label>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className={cn(
-                    isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white"
-                  )}
-                />
-              </div>
-
-              <div>
-                <label className={cn(
-                  "block text-sm font-medium mb-2",
-                  isDark ? "text-gray-300" : "text-gray-700"
-                )}>
-                  Service Interested In
-                </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className={cn(
-                    "w-full p-3 rounded-md border transition-colors",
-                    isDark 
-                      ? "bg-gray-700 border-gray-600 text-white" 
-                      : "bg-white border-gray-300"
-                  )}
+                <Button
+                  type="submit"
+                  disabled={mutation.isPending}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
-                  <option value="">Select a service</option>
-                  <option value="bridal">Bridal Wear</option>
-                  <option value="formal">Formal Wear</option>
-                  <option value="casual">Casual Wear</option>
-                  <option value="alterations">Alterations</option>
-                  <option value="uniform">Uniforms</option>
-                  <option value="custom">Custom Design</option>
-                </select>
-              </div>
-
-              <div>
-                <label className={cn(
-                  "block text-sm font-medium mb-2",
-                  isDark ? "text-gray-300" : "text-gray-700"
-                )}>
-                  Message *
-                </label>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  placeholder="Tell us about your project, timeline, and any specific requirements..."
-                  className={cn(
-                    isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white"
-                  )}
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-6 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                <Send className="w-5 h-5 mr-2" />
-                Send Message
-              </Button>
-            </form>
+                  {mutation.isPending ? "Sending..." : <><Send className="w-5 h-5 mr-2" /> Send Message</>}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </div>
