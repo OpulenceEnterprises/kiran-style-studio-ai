@@ -4,7 +4,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { CheckCircle, Award, Users, Clock } from "lucide-react";
+import { CheckCircle, Award, Users, Clock, Scissors } from "lucide-react";
 import TrainingInquiryForm from "@/components/TrainingInquiryForm";
 
 const courseHighlights = [
@@ -20,12 +20,14 @@ const pricingTiers = [
         price: "₹10,000",
         duration: "4 Weeks",
         features: ["Introduction to sewing machines", "Basic stitching techniques", "Fabric fundamentals", "Simple garment creation"],
+        icon: Scissors,
     },
     {
         title: "Advanced Course",
         price: "₹25,000",
         duration: "8 Weeks",
         features: ["Advanced pattern making", "Complex garment construction", "Draping and fitting", "Portfolio development"],
+        icon: Award,
     },
 ];
 
@@ -79,33 +81,43 @@ const Training = () => {
                          <p className={cn("text-lg", isDark ? "text-gray-300" : "text-gray-600")}>Choose the plan that's right for you.</p>
                     </div>
                     <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                        {pricingTiers.map(tier => (
-                            <Card key={tier.title} className={cn(
-                                "flex flex-col border-2",
-                                isDark ? "bg-gray-800 border-blue-700/50" : "bg-white border-blue-500/50"
-                            )}>
-                                <CardHeader>
-                                    <CardTitle className="text-2xl">{tier.title}</CardTitle>
-                                    <CardDescription>{tier.duration}</CardDescription>
-                                </CardHeader>
-                                <CardContent className="flex-grow">
-                                    <p className="text-4xl font-bold mb-6">{tier.price}</p>
-                                    <ul className="space-y-3 text-left">
-                                        {tier.features.map(feature => (
-                                            <li key={feature} className="flex items-center gap-3">
-                                                <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                                                <span>{feature}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button asChild size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transform hover:scale-105 transition-transform duration-200">
-                                        <a href="#training-form">Enroll Now</a>
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        ))}
+                        {pricingTiers.map(tier => {
+                            const TierIcon = tier.icon;
+                            return (
+                                <Card key={tier.title} className={cn(
+                                    "flex flex-col border-2",
+                                    isDark ? "bg-gray-800 border-blue-700/50" : "bg-white border-blue-500/50"
+                                )}>
+                                    <CardHeader>
+                                        <div className="flex items-start gap-4">
+                                            <div className={cn("p-4 rounded-full", isDark ? "bg-blue-900/30" : "bg-blue-100")}>
+                                                <TierIcon className={cn("w-8 h-8", isDark ? "text-blue-400" : "text-blue-600")} />
+                                            </div>
+                                            <div>
+                                                <CardTitle className="text-2xl">{tier.title}</CardTitle>
+                                                <CardDescription>{tier.duration}</CardDescription>
+                                            </div>
+                                        </div>
+                                    </CardHeader>
+                                    <CardContent className="flex-grow">
+                                        <p className="text-4xl font-bold mb-6">{tier.price}</p>
+                                        <ul className="space-y-3 text-left">
+                                            {tier.features.map(feature => (
+                                                <li key={feature} className="flex items-center gap-3">
+                                                    <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
+                                                    <span>{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </CardContent>
+                                    <CardFooter>
+                                        <Button asChild size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transform hover:scale-105 transition-transform duration-200">
+                                            <a href="#training-form">Enroll Now</a>
+                                        </Button>
+                                    </CardFooter>
+                                </Card>
+                            )
+                        })}
                     </div>
                 </section>
 

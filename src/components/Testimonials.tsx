@@ -1,4 +1,3 @@
-
 import { FC } from "react";
 import SectionHeader from "./SectionHeader";
 import {
@@ -10,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -56,8 +56,10 @@ const Testimonials: FC = () => (
                     <AvatarFallback>{testimonial.initials}</AvatarFallback>
                   </Avatar>
                   <p className="font-semibold text-gray-900 dark:text-gray-100">{testimonial.name}</p>
-                  <blockquote className="mt-2 text-sm text-gray-700 dark:text-gray-300 italic border-l-2 border-primary-500/50 pl-4">
+                  <blockquote className="relative mt-2 text-sm text-gray-700 dark:text-gray-300 italic px-6">
+                    <Quote className="absolute top-0 left-0 text-blue-100 dark:text-blue-900" size={24} strokeWidth={1.5} />
                     "{testimonial.comment}"
+                    <Quote className="absolute bottom-0 right-0 text-blue-100 dark:text-blue-900 rotate-180" size={24} strokeWidth={1.5} />
                   </blockquote>
                 </CardContent>
               </Card>

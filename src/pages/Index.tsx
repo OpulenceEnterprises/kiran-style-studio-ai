@@ -8,6 +8,7 @@ import ContactForm from "@/components/ContactForm";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { PackageCheck, Palette, Ruler } from "lucide-react";
 
 const Index = () => {
   const { isDark } = useTheme();
@@ -42,12 +43,23 @@ const Index = () => {
             )}>
               {t('moreFeatures')}
             </h3>
-            <p className={cn(
-              "text-lg",
+            <div className={cn(
+              "mt-6 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-lg",
               isDark ? "text-gray-400" : "text-gray-600"
             )}>
-              {t('featureList')}
-            </p>
+              <div className="flex items-center gap-2">
+                <PackageCheck size={20} className="text-blue-500" />
+                <span>Online Order Tracking</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Ruler size={20} className="text-blue-500" />
+                <span>Measurement Guides</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Palette size={20} className="text-blue-500" />
+                <span>Fabric Catalog</span>
+              </div>
+            </div>
           </div>
         </section>
       </main>

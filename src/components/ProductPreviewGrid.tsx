@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Image } from "lucide-react";
+import { ArrowRight, Scissors } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
 const featuredProducts = [
@@ -85,7 +85,8 @@ const ProductPreviewGrid: FC = () => {
                 </div>
               </div>
               
-              <button className="btn-primary w-full">
+              <button className="btn-primary w-full flex items-center justify-center gap-2">
+                <Scissors size={18} />
                 Request Custom Order
               </button>
             </div>
