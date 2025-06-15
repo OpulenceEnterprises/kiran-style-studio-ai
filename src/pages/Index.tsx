@@ -17,7 +17,7 @@ const Index = () => {
     <>
       <Hero />
       
-      <div className="max-w-6xl mx-auto px-4 space-y-16 py-16">
+      <div className="max-w-6xl mx-auto px-4 space-y-12 py-12">
         <PricingTable />
         <ProductPreviewGrid />
         <Testimonials />
@@ -26,7 +26,7 @@ const Index = () => {
 
       {/* Coming Soon Section */}
       <section className={cn(
-        "py-16 border-t",
+        "py-12 border-t",
         isDark ? "border-gray-800" : "border-gray-200"
       )}>
         <div className="max-w-6xl mx-auto text-center px-4">

@@ -1,4 +1,3 @@
-
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import CTAButton from "./CTAButton";
@@ -11,7 +10,7 @@ const Hero = () => {
 
   return (
     <section className={cn(
-      "relative py-20 lg:py-32 px-4 overflow-hidden",
+      "relative py-16 lg:py-20 px-4 overflow-hidden",
       isDark 
         ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" 
         : "bg-gradient-to-br from-gray-50 via-white to-gray-100"
