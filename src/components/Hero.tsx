@@ -1,3 +1,4 @@
+
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import CTAButton from "./CTAButton";
@@ -18,6 +19,12 @@ const Hero = () => {
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(59,130,246,0.3)_1px,transparent_0)] bg-[size:50px_50px]"></div>
       </div>
+
+      {/* Blended background image */}
+      <div className={cn(
+        "absolute inset-0 bg-tailoring-pattern mix-blend-overlay",
+        isDark ? "opacity-20" : "opacity-30"
+      )} />
 
       <div className="relative max-w-6xl mx-auto text-center">
         <div className="mb-8">
