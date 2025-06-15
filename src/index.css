@@ -3,40 +3,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles for Kiran's Tailoring Shop */
+/* Global Theme: Soft luxury, handmade paper, new fonts */
 @layer base {
   html {
-    font-family: theme('fontFamily.poppins');
-    background: linear-gradient(135deg, #FFF9F2 60%, #FBEAEC 100%);
+    font-family: theme('fontFamily.nunito');
+    background: url('https://www.transparenttextures.com/patterns/french-paper.png'), linear-gradient(135deg, #FFF6EA 80%, #DBECD1 100%);
+    background-size: auto, cover;
   }
   body {
-    @apply bg-cream-light text-gray-800 min-h-screen;
-    background: linear-gradient(to bottom right, #FFF9F2 80%, #FBEAEC 100%);
+    @apply bg-sand-light text-ink min-h-screen;
+    background: url('https://www.transparenttextures.com/patterns/french-paper.png'), linear-gradient(to bottom right, #FFF6EA 75%, #DBECD1 100%);
+    background-size: auto, cover;
   }
-
   h1, h2, h3, h4, h5 {
-    font-family: theme('fontFamily.lora');
-    @apply text-gray-900;
+    font-family: theme('fontFamily.marcellus');
+    @apply text-ink font-bold;
+    letter-spacing: 0.01em;
   }
 }
 
 .section-bg {
-  @apply bg-white/90 rounded-3xl border border-blush-light shadow-soft py-8 md:py-16 px-4 md:px-12 mx-auto my-8;
-  background: linear-gradient(120deg, #FFF9F2 70%, #FBEAEC 100%);
+  @apply bg-white rounded-3xl border border-sage-light shadow-lux-soft py-8 md:py-16 px-4 md:px-12 mx-auto my-8;
+  background: linear-gradient(120deg, #FFFDF9 70%, #C5ECEA 100%);
+  backdrop-filter: blur(2.5px) saturate(1.09);
 }
-
 .cta-shadow {
-  @apply shadow-cta;
+  @apply shadow-lux-glass;
 }
 
 .glassy {
-  @apply backdrop-blur-xl bg-white bg-opacity-80 border border-blush-light;
+  @apply backdrop-blur-xl bg-white bg-opacity-90 border border-sage-light;
 }
 
 .soft-shadow {
-  box-shadow: 0 6px 32px 0 rgba(200,180,190,0.14);
+  box-shadow: 0 10px 40px 0 rgba(181,199,167,0.10);
 }
 
-.bg-hero-craft {
-  background-image: linear-gradient(120deg, #FFF9F2 60%, #D8EDF0 100%);
+.bg-hero-fabric {
+  background-image: linear-gradient(120deg, #FFF6EA 60%, #B5C7A7 100%);
+}
+
+::-webkit-scrollbar {
+  width: 8px; background: #FFF6EA;
+}
+::-webkit-scrollbar-thumb {
+  background: #DBECD1; border-radius: 4px;
 }
