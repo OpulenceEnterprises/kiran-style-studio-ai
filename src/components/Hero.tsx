@@ -1,4 +1,3 @@
-
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import CTAButton from "./CTAButton";
@@ -38,9 +37,6 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <CTAButton href="#contact" variant="primary" className="text-lg px-8 py-4">
-            {t("bookConsultation")}
-          </CTAButton>
           <CTAButton href="/training" variant="primary" className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
             {t("joinTrainingProgram")}
           </CTAButton>

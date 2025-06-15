@@ -1,4 +1,3 @@
-
 import { FC, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -284,6 +283,30 @@ const ContactForm: FC = () => {
                 Send Message
               </Button>
             </form>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h3 className={cn(
+            "text-2xl font-semibold mb-6 text-center",
+            isDark ? "text-white" : "text-gray-900"
+          )}>
+            Find Us Here
+          </h3>
+          <div className={cn(
+            "rounded-xl overflow-hidden shadow-lg border",
+            isDark ? "border-gray-700" : "border-gray-300"
+          )}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.719894458204!2d77.3188150742185!3d28.58330738573456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce45a76135899%3A0x11158b7d42571ebb!2sKiran%20Ladies%20Tailor!5e0!3m2!1sen!2sin!4v1721034371536!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Kiran Ladies Tailor Location"
+            ></iframe>
           </div>
         </div>
       </div>
