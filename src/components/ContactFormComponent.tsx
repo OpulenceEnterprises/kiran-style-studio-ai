@@ -1,4 +1,3 @@
-
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,7 +16,7 @@ import { supabase } from "@/lib/supabaseClient";
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
+  email: z.string().email({ message: "Please enter a valid email address." }).optional().or(z.literal('')),
   service: z.string().optional(),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
@@ -28,18 +27,20 @@ const sendEmail = async (formData: ContactFormValues) => {
   const htmlBody = `
     <p><strong>Name:</strong> ${formData.name}</p>
     <p><strong>Phone:</strong> ${formData.phone}</p>
-    <p><strong>Email:</strong> ${formData.email}</p>
+    <p><strong>Email:</strong> ${formData.email || 'Not provided'}</p>
     <p><strong>Service:</strong> ${formData.service || 'Not specified'}</p>
     <p><strong>Message:</strong></p>
     <p>${formData.message.replace(/\n/g, "<br>")}</p>
   `;
+
+  const fromEmail = formData.email || 'no-reply@suidhaga-empower.com';
 
   const { error } = await supabase.functions.invoke('send-email', {
     body: JSON.stringify({
       subject: 'New Contact Form Submission from Website',
       htmlBody,
       fromName: formData.name,
-      fromEmail: formData.email,
+      fromEmail: fromEmail,
     }),
   });
 
@@ -101,7 +102,7 @@ const ContactFormComponent: FC = () => {
           </div>
           <FormField control={form.control} name="email" render={({ field }) => (
               <FormItem>
-                  <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Email Address *</FormLabel>
+                  <FormLabel className={cn(isDark ? "text-gray-300" : "text-gray-700")}>Email Address (Optional)</FormLabel>
                   <FormControl>
                       <Input type="email" {...field} className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")} />
                   </FormControl>
