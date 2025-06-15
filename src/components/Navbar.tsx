@@ -1,6 +1,6 @@
 
 import { FC } from "react";
-import { BookOpen, Video, Image, Whatsapp } from "lucide-react";
+import { BookOpen, Video, Image, MessageCircle } from "lucide-react";
 
 const Navbar: FC = () => (
   <nav className="w-full flex items-center justify-between px-4 py-3 md:px-12 md:py-4 bg-white/90 rounded-b-xl2 shadow-soft fixed top-0 left-0 z-40 backdrop-blur-lg">
@@ -24,8 +24,8 @@ const Navbar: FC = () => (
         <a href="#contact" className="hover:text-teal-DEFAULT transition-colors">Contact</a>
       </li>
       <li>
-        <a href="https://wa.me/919999999999" target="_blank" rel="noopener" className="ml-2 text-teal-DEFAULT flex items-center transition hover:scale-110" title="WhatsApp"> 
-          <Whatsapp size={22} />
+        <a href="https://wa.me/919999999999" target="_blank" rel="noopener" className="ml-2 text-teal-DEFAULT flex items-center transition hover:scale-110" title="Chat on WhatsApp"> 
+          <MessageCircle size={22} />
         </a>
       </li>
     </ul>
