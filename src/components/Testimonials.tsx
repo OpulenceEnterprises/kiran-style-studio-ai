@@ -26,14 +26,14 @@ const aiCaption = (comment: string) =>
   `“${comment}”`;
 
 const Testimonials: FC = () => (
-  <section id="testimonials" className="section-bg mt-0 mb-12">
+  <section id="testimonials" className="section-bg my-12 glassy shadow-lux-glass">
     <SectionHeader
       title="What Our Customers Say"
       subtitle="Testimonials from happy clients and students"
     />
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {testimonials.map((t) => (
-        <div key={t.name} className="flex flex-col items-center rounded-2xl bg-cream-light p-4 shadow-soft hover:shadow-xl transition">
+        <div key={t.name} className="flex flex-col items-center rounded-2xl bg-cream-light/85 p-4 shadow-lux-soft hover:shadow-xl transition">
           <div className="w-full rounded-xl overflow-hidden aspect-video mb-3 border-2 border-blush-light">
             <iframe
               src={t.video}

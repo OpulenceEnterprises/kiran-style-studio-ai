@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
@@ -7,15 +8,15 @@ import PricingTable from "@/components/PricingTable";
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-cream-light">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Main Content */}
-      <main className="flex flex-col pt-24 md:pt-28 gap-8 md:gap-14">
+      <main className="flex flex-col pt-24 md:pt-32 gap-10 md:gap-16">
         <Hero />
-        <Testimonials />
+        <section className="w-full px-0">
+          <PricingTable />
+        </section>
         <ProductPreviewGrid />
-        <PricingTable />
+        <Testimonials />
 
         {/* More sections coming soon (Training, Contact, AI Assistant etc.) */}
         <section className="mt-8 mb-16 text-center">

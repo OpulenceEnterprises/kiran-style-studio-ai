@@ -36,13 +36,16 @@ const pricing = [
 ];
 
 const PricingTable: FC = () => (
-  <section id="pricing" className="section-bg bg-gradient-to-b from-blush-light/60 via-white to-cream-light border border-blush-light my-10 animate-fade-in">
+  <section
+    id="pricing"
+    className="section-bg bg-gradient-to-b from-blush-light/60 via-white to-cream-light border border-blush-light my-10 animate-fade-in shadow-lux-glass"
+  >
     <SectionHeader
       title="Transparent Pricing"
       subtitle="No surprises. All prices include consultation and custom fittings."
     />
     <div className="max-w-2xl mx-auto">
-      <div className="overflow-hidden rounded-2xl shadow-soft border bg-white/80">
+      <div className="overflow-hidden rounded-2xl shadow-lux-glass border bg-white/90">
         <table className="w-full text-base font-poppins">
           <thead>
             <tr className="bg-blush-light/80 text-blush-DEFAULT">
@@ -53,7 +56,10 @@ const PricingTable: FC = () => (
           </thead>
           <tbody>
             {pricing.map((p) => (
-              <tr key={p.service} className="border-t border-blush-light hover:bg-cream-light/70 transition">
+              <tr
+                key={p.service}
+                className="border-t border-blush-light hover:bg-sand-light/50 transition"
+              >
                 <td className="py-2 px-3 font-semibold">{p.service}</td>
                 <td className="py-2 px-2 text-gray-600">{p.description}</td>
                 <td className="py-2 px-2 text-right font-bold text-teal-DEFAULT">{p.price}</td>
@@ -62,7 +68,13 @@ const PricingTable: FC = () => (
           </tbody>
         </table>
       </div>
-      <div className="mt-3 text-xs text-center text-gray-500">For bulk, bridal or unique work, <a href="#contact" className="underline text-teal-DEFAULT">contact us for a quote</a>.</div>
+      <div className="mt-3 text-xs text-center text-gray-500">
+        For bulk, bridal or unique work,{" "}
+        <a href="#contact" className="underline text-teal-DEFAULT">
+          contact us for a quote
+        </a>
+        .
+      </div>
     </div>
   </section>
 );

@@ -40,7 +40,7 @@ const ProductPreviewGrid: FC = () => {
       ? allProducts
       : allProducts.filter((p) => p.category === filter);
   return (
-    <section id="products" className="section-bg">
+    <section id="products" className="section-bg glassy shadow-lux-glass">
       <SectionHeader
         title="Our Products"
         subtitle="A glimpse at our bespoke tailoring—from bridal couture to everyday wear."
@@ -69,7 +69,7 @@ const ProductPreviewGrid: FC = () => {
         {showProducts.map((p) => (
           <div
             key={p.title}
-            className="rounded-2xl bg-white shadow-soft hover:shadow-lg overflow-hidden flex flex-col border-blush border"
+            className="rounded-2xl bg-white/80 shadow-lux-soft hover:shadow-lg overflow-hidden flex flex-col border-blush border glassy transition"
           >
             <div className="w-full aspect-square bg-cream-light flex items-center justify-center overflow-hidden">
               <img
@@ -80,7 +80,7 @@ const ProductPreviewGrid: FC = () => {
               />
             </div>
             <div className="p-4 flex flex-col gap-2 flex-grow">
-              <div className="font-semibold font-lora text-lg text-gray-800 flex gap-2 items-center mb-1">
+              <div className="font-semibold font-marcellus text-lg text-gray-800 flex gap-2 items-center mb-1">
                 <Image size={18} className="text-blush-DEFAULT" />
                 {p.title}
               </div>
