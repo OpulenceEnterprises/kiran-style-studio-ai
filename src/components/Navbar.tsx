@@ -15,11 +15,10 @@ const Navbar: FC = () => {
   const { t } = useLanguage();
 
   const links = [
-    { label: t("services"), href: "/#services" },
+    { label: t("contact"), href: "/#contact" },
     { label: t("pricing"), href: "/#pricing" },
     { label: t("products"), href: "/products" },
     { label: t("aboutUs"), href: "/about" },
-    { label: t("contact"), href: "/#contact" },
   ];
 
   const scrollWithOffset = (el: HTMLElement) => {
@@ -158,7 +157,7 @@ const Navbar: FC = () => {
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </HashLink>
+              </Link>
             ))}
             <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
             <div className="flex items-center gap-4">
