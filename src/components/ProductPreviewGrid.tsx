@@ -1,5 +1,5 @@
 
-import { FC } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -9,6 +9,12 @@ import SectionHeader from "./SectionHeader";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const featuredProductsData = [
   {
@@ -16,27 +22,43 @@ const featuredProductsData = [
     titleKey: "bridalLehengaTitle",
     category: "Bridal",
     price: "₹15,000+",
-    img: "https://images.unsplash.com/photo-1631846999951-f74e36502322?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+      "https://images.unsplash.com/photo-1631846999951-f74e36502322?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1596495914041-52648d68962a?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1594499468121-4b7e83f56e9c?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 2,
     titleKey: "formalBusinessSuitTitle",
     category: "Formal",
     price: "₹8,000+",
-    img: "https://images.unsplash.com/photo-1574785422324-4093b5db4607?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+      "https://images.unsplash.com/photo-1574785422324-4093b5db4607?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1521577042448-ce3315a45b63?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1593032584856-db38662923e9?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 3,
     titleKey: "designerKurtiTitle",
     category: "Custom",
     price: "₹1,200+",
-    img: "/lovable-uploads/b2caa58b-3cdd-4947-909b-7d388faadf13.png",
+    imgs: [
+      "/lovable-uploads/b2caa58b-3cdd-4947-909b-7d388faadf13.png",
+      "https://images.unsplash.com/photo-1610173826848-936674e34159?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1587515339245-81056574765d?auto=format&fit=crop&w=600&q=80",
+    ],
   },
 ];
 
 const ProductPreviewGrid: FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
+
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
 
   const featuredProducts = featuredProductsData.map(p => ({
     ...p,
@@ -66,14 +88,27 @@ const ProductPreviewGrid: FC = () => {
                 isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
               )}
             >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={product.img}
-                  alt={product.title}
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
+              <Carousel
+                plugins={[plugin.current]}
+                className="w-full"
+                onMouseEnter={plugin.current.stop}
+                onMouseLeave={plugin.current.reset}
+              >
+                <CarouselContent>
+                  {product.imgs.map((img, index) => (
+                    <CarouselItem key={index}>
+                      <div className="aspect-square overflow-hidden">
+                        <img
+                          src={img}
+                          alt={`${product.title} ${index + 1}`}
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                          loading="lazy"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
               
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">

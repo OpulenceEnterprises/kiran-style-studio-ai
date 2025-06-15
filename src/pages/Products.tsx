@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
@@ -8,6 +8,12 @@ import { TranslationKey } from "@/lib/translations";
 import Navbar from "@/components/Navbar";
 import { Whatsapp } from "@/components/Whatsapp";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const categories = [
   { labelKey: "all", filterValue: "All" },
@@ -25,7 +31,11 @@ const allProductsData = [
     descriptionKey: "bridalLehengaDesc",
     category: "Bridal",
     price: "₹15,000+",
-    img: "https://images.unsplash.com/photo-1519748793657-b6d6c31c0b6e?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1631846999951-f74e36502322?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1596495914041-52648d68962a?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1594499468121-4b7e83f56e9c?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 2,
@@ -33,7 +43,11 @@ const allProductsData = [
     descriptionKey: "weddingSareeBlouseDesc",
     category: "Bridal",
     price: "₹2,500+",
-    img: "https://images.unsplash.com/photo-1583391733956-6c78276477e1?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1583391733956-6c78276477e1?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1628187844059-1e78119001b3?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1617650429715-e29f8f3a3f5b?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 3,
@@ -41,7 +55,11 @@ const allProductsData = [
     descriptionKey: "formalBusinessSuitDesc",
     category: "Formal",
     price: "₹8,000+",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1574785422324-4093b5db4607?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1521577042448-ce3315a45b63?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1593032584856-db38662923e9?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 4,
@@ -49,7 +67,11 @@ const allProductsData = [
     descriptionKey: "designerKurtiDesc",
     category: "Formal",
     price: "₹1,200+",
-    img: "/lovable-uploads/b2caa58b-3cdd-4947-909b-7d388faadf13.png",
+    imgs: [
+      "/lovable-uploads/b2caa58b-3cdd-4947-909b-7d388faadf13.png",
+      "https://images.unsplash.com/photo-1610173826848-936674e34159?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1587515339245-81056574765d?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 5,
@@ -57,7 +79,11 @@ const allProductsData = [
     descriptionKey: "kidsPartyDressDesc",
     category: "Kidswear",
     price: "₹800+",
-    img: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1515598634835-6c7c5b2a0f8e?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1509904772322-9293a8d94a11?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 6,
@@ -65,7 +91,11 @@ const allProductsData = [
     descriptionKey: "schoolUniformSetDesc",
     category: "Uniforms",
     price: "₹750+",
-    img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1618193139121-f18731383713?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1576972629683-b26a57567b5e?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 7,
@@ -73,7 +103,11 @@ const allProductsData = [
     descriptionKey: "customEveningGownDesc",
     category: "Custom",
     price: "₹12,000+",
-    img: "https://images.unsplash.com/photo-1566479179817-c2db8fd7dda6?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1566479179817-c2db8fd7dda6?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1595392749979-482d3893c5fb?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1515537656128-d69b35b6a7b1?auto=format&fit=crop&w=600&q=80",
+    ],
   },
   {
     id: 8,
@@ -81,7 +115,11 @@ const allProductsData = [
     descriptionKey: "traditionalAnarkaliDesc",
     category: "Custom",
     price: "₹3,500+",
-    img: "https://images.unsplash.com/photo-1582991112763-2d85c6e88bf8?auto=format&fit=crop&w=600&q=80",
+    imgs: [
+        "https://images.unsplash.com/photo-1582991112763-2d85c6e88bf8?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1604176353369-db59b60d7037?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1617650429715-e29f8f3a3f5b?auto=format&fit=crop&w=600&q=80",
+    ],
   },
 ];
 
@@ -89,6 +127,8 @@ const Products: FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
   const [filter, setFilter] = useState("All");
+
+  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
   const allProducts = allProductsData.map(p => ({
     ...p,
@@ -168,14 +208,27 @@ const Products: FC = () => {
                   isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
                 )}
               >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={product.img}
-                    alt={product.title}
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                </div>
+                <Carousel
+                  plugins={[plugin.current]}
+                  className="w-full"
+                  onMouseEnter={plugin.current.stop}
+                  onMouseLeave={plugin.current.reset}
+                >
+                  <CarouselContent>
+                    {product.imgs.map((img, index) => (
+                      <CarouselItem key={index}>
+                        <div className="aspect-square overflow-hidden">
+                          <img
+                            src={img}
+                            alt={`${product.title} ${index + 1}`}
+                            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                            loading="lazy"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
                 
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
