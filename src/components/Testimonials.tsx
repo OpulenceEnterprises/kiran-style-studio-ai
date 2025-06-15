@@ -1,29 +1,36 @@
 
 import { FC } from "react";
 import SectionHeader from "./SectionHeader";
-import { Video } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const testimonials = [
   {
     name: "Priya Sharma",
     comment: "I love my bridal lehenga! The stitching detail and fit were perfect. Kiran made my wedding so special.",
-    video: "https://www.youtube.com/embed/E7wJTI-1dvQ",
+    image: `https://source.unsplash.com/random/100x100/?portrait,woman&sig=${Math.random()}`,
+    initials: "PS",
   },
   {
     name: "Rohit Menon",
     comment: "Quick alterations and very friendly. My office uniforms look sharp every time.",
-    video: "https://www.youtube.com/embed/TlQkeLiqMZM",
+    image: `https://source.unsplash.com/random/100x100/?portrait,man&sig=${Math.random()}`,
+    initials: "RM",
   },
   {
     name: "Aruna Iyer",
     comment: "The tailoring classes gave me so much confidence—thank you, Kiran, for making learning so enjoyable.",
-    video: "https://www.youtube.com/embed/M7lc1UVf-VE",
+    image: `https://source.unsplash.com/random/100x100/?portrait,woman,teacher&sig=${Math.random()}`,
+    initials: "AI",
   },
 ];
-
-// AI caption/subtitle stub (future feature: real captions)
-const aiCaption = (comment: string) =>
-  `“${comment}”`;
 
 const Testimonials: FC = () => (
   <section id="testimonials" className="section-bg my-12 glassy shadow-lux-glass">
@@ -31,28 +38,36 @@ const Testimonials: FC = () => (
       title="What Our Customers Say"
       subtitle="Testimonials from happy clients and students"
     />
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {testimonials.map((t) => (
-        <div key={t.name} className="flex flex-col items-center rounded-2xl bg-cream-light/85 p-4 shadow-lux-soft hover:shadow-xl transition">
-          <div className="w-full rounded-xl overflow-hidden aspect-video mb-3 border-2 border-blush-light">
-            <iframe
-              src={t.video}
-              title={t.name + " testimonial"}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full min-h-[156px]"
-            />
-          </div>
-          <div className="flex flex-row gap-2 items-center mt-1">
-            <Video size={18} className="text-teal-DEFAULT" />
-            <span className="font-semibold text-gray-900">{t.name}</span>
-          </div>
-          <div className="italic text-gray-700 text-sm mt-2 text-center">
-            {aiCaption(t.comment)}
-          </div>
-        </div>
-      ))}
-    </div>
+    <Carousel
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+      className="w-full max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
+    >
+      <CarouselContent>
+        {testimonials.map((testimonial) => (
+          <CarouselItem key={testimonial.name} className="md:basis-1/2 lg:basis-1/3">
+            <div className="p-1 h-full">
+              <Card className="h-full">
+                <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
+                  <Avatar className="w-20 h-20 mb-4 border-2 border-blush-light">
+                    <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                    <AvatarFallback>{testimonial.initials}</AvatarFallback>
+                  </Avatar>
+                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                  <blockquote className="mt-2 text-sm text-gray-700 italic border-l-2 border-teal-light pl-4">
+                    "{testimonial.comment}"
+                  </blockquote>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="hidden sm:inline-flex" />
+      <CarouselNext className="hidden sm:inline-flex" />
+    </Carousel>
   </section>
 );
 
