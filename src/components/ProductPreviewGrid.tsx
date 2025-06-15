@@ -28,7 +28,7 @@ const featuredProductsData = [
     titleKey: "designerKurtiTitle",
     category: "Custom",
     price: "₹1,200+",
-    img: "https://images.unsplash.com/photo-1617019772535-983b6329243a?auto=format&fit=crop&w=600&q=80",
+    img: "/lovable-uploads/b2caa58b-3cdd-4947-909b-7d388faadf13.png",
   },
 ];
 

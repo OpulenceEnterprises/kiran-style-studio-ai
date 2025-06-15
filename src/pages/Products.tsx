@@ -47,7 +47,7 @@ const allProductsData = [
     descriptionKey: "designerKurtiDesc",
     category: "Formal",
     price: "₹1,200+",
-    img: "https://images.unsplash.com/photo-1530845645112-0f7c1f1ab7d5?auto=format&fit=crop&w=600&q=80",
+    img: "/lovable-uploads/b2caa58b-3cdd-4947-909b-7d388faadf13.png",
   },
   {
     id: 5,
