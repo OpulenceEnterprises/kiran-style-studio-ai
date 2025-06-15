@@ -1,3 +1,4 @@
+
 import { FC, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -40,12 +41,20 @@ const Navbar: FC = () => {
             S
           </div>
           <div className="flex flex-col">
-            <span className={cn(
-              "font-inter text-xl font-bold transition-colors",
-              isDark ? "text-white" : "text-gray-900"
-            )}>
-              {t("brandName")}
-            </span>
+            <div className="flex items-baseline">
+              <span className={cn(
+                "font-inter text-xl font-bold transition-colors",
+                isDark ? "text-white" : "text-gray-900"
+              )}>
+                {t("brandName")}
+              </span>
+              <span className={cn(
+                "ml-1.5 text-sm font-medium",
+                isDark ? "text-gray-400" : "text-gray-500"
+              )}>
+                {t("byKiran")}
+              </span>
+            </div>
             <span className={cn(
               "text-xs font-medium",
               isDark ? "text-gray-400" : "text-gray-600"

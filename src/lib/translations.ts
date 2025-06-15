@@ -7,8 +7,9 @@ export const translations = {
     products: "Products",
     contact: "Contact",
     joinTraining: "Learn Sewing",
-    brandName: "Sui Dhaga by Kiran",
+    brandName: "Sui Dhaga",
     brandSubtitle: "Where Every Stitch Empowers",
+    byKiran: "by Kiran",
 
     // Hero Section
     heroTitle1: "Stitching Dreams,",
@@ -70,8 +71,9 @@ export const translations = {
     products: "उत्पाद",
     contact: "संपर्क",
     joinTraining: "सिलाई सीखें",
-    brandName: "सुई धागा by किरण",
+    brandName: "सुई धागा",
     brandSubtitle: "जहाँ हर सिलाई सशक्त बनाती है",
+    byKiran: "by किरण",
 
     // Hero Section
     heroTitle1: "सपनों को सिलना,",
@@ -133,8 +135,9 @@ export const translations = {
     products: "Products",
     contact: "Contact",
     joinTraining: "Silai Seekhein",
-    brandName: "Sui Dhaga by Kiran",
+    brandName: "Sui Dhaga",
     brandSubtitle: "Jahaan Har Stitch Empower Karta Hai",
+    byKiran: "by Kiran",
 
     // Hero Section
     heroTitle1: "Sapne Silna,",
