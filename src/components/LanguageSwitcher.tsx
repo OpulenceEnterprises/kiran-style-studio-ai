@@ -1,3 +1,4 @@
+
 import { FC } from "react";
 import { Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -25,7 +26,7 @@ const LanguageSwitcher: FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className={cn(isDark ? "hover:bg-gray-800" : "hover:bg-gray-100")}>
+        <Button variant="ghost" size="icon">
           <Globe className="h-[1.2rem] w-[1.2rem]" />
           <span className="sr-only">Change language</span>
         </Button>

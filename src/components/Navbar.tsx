@@ -6,6 +6,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { Button } from "./ui/button";
 
 const Navbar: FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,7 +56,7 @@ const Navbar: FC = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           <ul className="flex gap-6 items-center">
             {links.map((link) => (
               <li key={link.href}>
@@ -74,35 +75,52 @@ const Navbar: FC = () => {
             ))}
           </ul>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <LanguageSwitcher />
             <ThemeToggle />
+          </div>
+
+          <div className="h-6 w-px bg-gray-300 dark:bg-gray-700"></div>
+
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="icon" asChild>
+                <a
+                    href="https://wa.me/919999999999"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Chat on WhatsApp"
+                    className={cn(
+                      'text-green-500 hover:text-green-500 dark:text-green-400 dark:hover:text-green-400',
+                      'hover:bg-green-500/10 dark:hover:bg-green-400/10'
+                    )}
+                >
+                    <MessageCircle className="h-5 w-5" />
+                </a>
+            </Button>
             <a
               href="/training"
               className="btn-primary"
             >
               {t("joinTraining")}
             </a>
-            <a
-              href="https://wa.me/919999999999"
-              target="_blank"
-              rel="noopener"
-              className={cn(
-                "flex items-center gap-2 p-2 rounded-lg transition-colors",
-                isDark 
-                  ? "text-green-400 hover:bg-gray-800" 
-                  : "text-green-600 hover:bg-gray-100"
-              )}
-            >
-              <MessageCircle size={20} />
-            </a>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="md:hidden flex items-center gap-1">
           <LanguageSwitcher />
           <ThemeToggle />
+          <Button variant="ghost" size="icon" asChild>
+              <a
+                  href="https://wa.me/919999999999"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Chat on WhatsApp"
+                  className={cn('text-green-500 dark:text-green-400')}
+              >
+                  <MessageCircle className="h-5 w-5" />
+              </a>
+          </Button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(
@@ -137,13 +155,26 @@ const Navbar: FC = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="/training"
-              className="btn-primary block text-center"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("joinTraining")}
-            </a>
+            <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://wa.me/919999999999"
+                target="_blank"
+                rel="noopener"
+                className="btn-secondary flex-1 text-center flex items-center justify-center gap-2"
+                onClick={() => setMobileOpen(false)}
+              >
+                <MessageCircle size={18} />
+                WhatsApp
+              </a>
+              <a
+                href="/training"
+                className="btn-primary flex-1 text-center"
+                onClick={() => setMobileOpen(false)}
+              >
+                {t("joinTraining")}
+              </a>
+            </div>
           </div>
         </div>
       )}
