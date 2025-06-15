@@ -13,10 +13,11 @@ const Navbar: FC = () => {
   const { t } = useLanguage();
 
   const links = [
-    { label: t("services"), href: "#services" },
-    { label: t("pricing"), href: "#pricing" },
-    { label: t("products"), href: "#products" },
-    { label: t("contact"), href: "#contact" },
+    { label: t("services"), href: "/#services" },
+    { label: t("pricing"), href: "/#pricing" },
+    { label: t("products"), href: "/products" },
+    { label: t("aboutUs"), href: "/about" },
+    { label: t("contact"), href: "/#contact" },
   ];
 
   return (

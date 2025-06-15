@@ -7,9 +7,11 @@ import PricingTable from "@/components/PricingTable";
 import ContactForm from "@/components/ContactForm";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <div className={cn(
@@ -38,13 +40,13 @@ const Index = () => {
               "text-2xl font-bold mb-4",
               isDark ? "text-white" : "text-gray-900"
             )}>
-              More Features Coming Soon
+              {t('moreFeatures')}
             </h3>
             <p className={cn(
               "text-lg",
               isDark ? "text-gray-400" : "text-gray-600"
             )}>
-              AI Stylist • Advanced Pricing Calculator • Course Registration
+              {t('featureList')}
             </p>
           </div>
         </section>
