@@ -84,7 +84,7 @@ const ContactForm: FC = () => {
                       "text-sm",
                       isDark ? "text-gray-300" : "text-gray-600"
                     )}>
-                      +91 XXXXX XXXXX
+                      +91 9263267023
                     </p>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ const ContactForm: FC = () => {
                       "text-sm",
                       isDark ? "text-gray-300" : "text-gray-600"
                     )}>
-                      info@kiranstudio.com
+                      suidhaga.empower@gmail.com
                     </p>
                   </div>
                 </div>

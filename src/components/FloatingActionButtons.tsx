@@ -14,7 +14,7 @@ const FloatingActionButtons = () => {
       <Tooltip>
         <TooltipTrigger asChild>
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919263267023"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
@@ -31,7 +31,7 @@ const FloatingActionButtons = () => {
       <Tooltip>
         <TooltipTrigger asChild>
           <a
-            href="tel:+919999999999"
+            href="tel:+919263267023"
             aria-label="Call us"
             className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-110"
           >

@@ -92,7 +92,7 @@ const Navbar: FC = () => {
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild>
                 <a
-                    href="https://wa.me/919999999999"
+                    href="https://wa.me/919263267023"
                     target="_blank"
                     rel="noopener"
                     aria-label="Chat on WhatsApp"
@@ -154,7 +154,7 @@ const Navbar: FC = () => {
             <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
             <div className="flex items-center gap-4">
                <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/919263267023"
                 target="_blank"
                 rel="noopener"
                 className="btn-secondary flex-1 text-center flex items-center justify-center gap-2"
