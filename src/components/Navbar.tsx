@@ -14,7 +14,7 @@ const Navbar: FC = () => {
   const { t } = useLanguage();
 
   const links = [
-    { label: t("contact"), href: "/#contact" },
+    { label: "Home", href: "/" },
     { label: t("pricing"), href: "/#pricing" },
     { label: t("products"), href: "/products" },
     { label: t("aboutUs"), href: "/about" },
