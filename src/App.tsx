@@ -11,6 +11,7 @@ import Products from "./pages/Products";
 import Training from "./pages/Training";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import FloatingActionButtons from "./components/FloatingActionButtons";
 
 const queryClient = new QueryClient();
 
@@ -22,14 +23,19 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/training" element={<Training />} />
-              <Route path="/about" element={<About />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <div className="flex flex-col min-h-screen">
+                <main className="flex-grow pt-24">
+                    <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/training" element={<Training />} />
+                    <Route path="/about" element={<About />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </main>
+                <FloatingActionButtons />
+            </div>
           </BrowserRouter>
         </TooltipProvider>
       </LanguageProvider>

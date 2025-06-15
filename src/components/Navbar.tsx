@@ -1,12 +1,13 @@
 
 import { FC, useState } from "react";
-import { MessageCircle, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/contexts/ThemeContext";
 import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Button } from "./ui/button";
+import { Whatsapp } from "./Whatsapp";
 
 const Navbar: FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -94,7 +95,7 @@ const Navbar: FC = () => {
                       'hover:bg-green-500/10 dark:hover:bg-green-400/10'
                     )}
                 >
-                    <MessageCircle className="h-5 w-5" />
+                    <Whatsapp className="h-6 w-6" />
                 </a>
             </Button>
             <a
@@ -110,23 +111,13 @@ const Navbar: FC = () => {
         <div className="md:hidden flex items-center gap-1">
           <LanguageSwitcher />
           <ThemeToggle />
-          <Button variant="ghost" size="icon" asChild>
-              <a
-                  href="https://wa.me/919999999999"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Chat on WhatsApp"
-                  className={cn('text-green-500 dark:text-green-400')}
-              >
-                  <MessageCircle className="h-5 w-5" />
-              </a>
-          </Button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(
               "p-2 rounded-lg transition-colors",
               isDark ? "hover:bg-gray-800" : "hover:bg-gray-100"
             )}
+            aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -136,7 +127,7 @@ const Navbar: FC = () => {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className={cn(
-          "md:hidden fixed inset-x-0 top-full backdrop-blur-xl border-b shadow-lg",
+          "md:hidden fixed inset-x-0 top-[calc(var(--navbar-height,68px))] backdrop-blur-xl border-b shadow-lg",
           isDark ? "bg-gray-900/95 border-gray-700" : "bg-white/95 border-gray-200"
         )}>
           <div className="px-4 py-6 space-y-4">
@@ -157,14 +148,14 @@ const Navbar: FC = () => {
             ))}
             <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
             <div className="flex items-center gap-4">
-              <a
+               <a
                 href="https://wa.me/919999999999"
                 target="_blank"
                 rel="noopener"
                 className="btn-secondary flex-1 text-center flex items-center justify-center gap-2"
                 onClick={() => setMobileOpen(false)}
               >
-                <MessageCircle size={18} />
+                <Whatsapp className="h-5 w-5" />
                 WhatsApp
               </a>
               <a
@@ -183,3 +174,4 @@ const Navbar: FC = () => {
 };
 
 export default Navbar;
+
