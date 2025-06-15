@@ -43,16 +43,56 @@ const Training = () => {
             <main className="pt-20">
                 {/* Hero Section */}
                 <section className={cn(
-                    "py-20 px-4 text-center",
+                    "py-20 px-4",
                     isDark ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" : "bg-gradient-to-br from-gray-50 via-white to-gray-100"
                 )}>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">Master the Art of Tailoring</h1>
-                    <p className={cn(
-                        "text-xl md:text-2xl max-w-3xl mx-auto",
-                        isDark ? "text-gray-300" : "text-gray-700"
-                    )}>
-                        Join our professional training program and turn your passion into a profession.
-                    </p>
+                    <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="text-center lg:text-left">
+                            <h1 className="text-4xl md:text-6xl font-bold mb-4">Master the Art of Tailoring</h1>
+                            <p className={cn(
+                                "text-xl md:text-2xl max-w-3xl mx-auto lg:mx-0 mb-8",
+                                isDark ? "text-gray-300" : "text-gray-700"
+                            )}>
+                                Join our professional training program and turn your passion into a profession. Learn from expert tailors in a supportive environment.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3">
+                                    <a href="#training-form">Start Learning Today</a>
+                                </Button>
+                                <Button variant="outline" size="lg" className="font-semibold px-8 py-3">
+                                    <a href="#training-pricing">View Courses</a>
+                                </Button>
+                            </div>
+                        </div>
+                        
+                        {/* Image Grid */}
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-4">
+                                <img
+                                    src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=400&q=80"
+                                    alt="Woman learning to sew"
+                                    className="rounded-lg shadow-lg w-full h-48 object-cover"
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=400&q=80"
+                                    alt="Colorful fabrics and threads"
+                                    className="rounded-lg shadow-lg w-full h-32 object-cover"
+                                />
+                            </div>
+                            <div className="space-y-4 pt-8">
+                                <img
+                                    src="https://images.unsplash.com/photo-1566399041716-20c0f8d65e14?auto=format&fit=crop&w=400&q=80"
+                                    alt="Sewing machine in action"
+                                    className="rounded-lg shadow-lg w-full h-32 object-cover"
+                                />
+                                <img
+                                    src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?auto=format&fit=crop&w=400&q=80"
+                                    alt="Hands working on sewing project"
+                                    className="rounded-lg shadow-lg w-full h-48 object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 {/* Highlights Section */}
