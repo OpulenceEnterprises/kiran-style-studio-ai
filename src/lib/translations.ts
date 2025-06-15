@@ -1,4 +1,3 @@
-
 export const translations = {
   en: {
     // Navbar
@@ -6,7 +5,7 @@ export const translations = {
     pricing: "Pricing",
     products: "Products",
     contact: "Contact",
-    joinTraining: "Join Training",
+    joinTraining: "Learn Sewing",
     brandName: "Kiran's Studio",
     brandSubtitle: "Professional Tailoring",
 
@@ -15,7 +14,7 @@ export const translations = {
     heroTitle2: "Sewing Excellence",
     heroSubtitle: "Master craftsmanship meets modern techniques. From bespoke wedding attire to everyday alterations, we deliver precision and style.",
     bookConsultation: "Book Consultation",
-    joinTrainingProgram: "Join Training Program",
+    joinTrainingProgram: "Learn Sewing",
     viewPricing: "View Pricing",
     videoCaption: "Meet Your Expert Tailor | Studio Showcase",
 
@@ -69,7 +68,7 @@ export const translations = {
     pricing: "कीमतें",
     products: "उत्पाद",
     contact: "संपर्क",
-    joinTraining: "प्रशिक्षण में शामिल हों",
+    joinTraining: "सिलाई सीखें",
     brandName: "किरण का स्टूडियो",
     brandSubtitle: "पेशेवर सिलाई",
 
@@ -78,7 +77,7 @@ export const translations = {
     heroTitle2: "सिलाई में उत्कृष्टता",
     heroSubtitle: "आधुनिक तकनीकों के साथ विशेषज्ञ शिल्प कौशल। विशेष शादी की पोशाक से लेकर रोजमर्रा के बदलाव तक, हम सटीकता और शैली प्रदान करते हैं।",
     bookConsultation: "परामर्श बुक करें",
-    joinTrainingProgram: "प्रशिक्षण कार्यक्रम में शामिल हों",
+    joinTrainingProgram: "सिलाई सीखें",
     viewPricing: "कीमतें देखें",
     videoCaption: "अपने विशेषज्ञ दर्जी से मिलें | स्टूडियो शोकेस",
 
@@ -132,7 +131,7 @@ export const translations = {
     pricing: "Pricing",
     products: "Products",
     contact: "Contact",
-    joinTraining: "Training Join Karein",
+    joinTraining: "Silai Seekhein",
     brandName: "Kiran's Studio",
     brandSubtitle: "Professional Tailoring",
 
@@ -141,7 +140,7 @@ export const translations = {
     heroTitle2: "Behtareen Silai",
     heroSubtitle: "Master karigari modern techniques ke saath. Khaas shaadi ke kapdon se lekar rozmarra ke alterations tak, hum precision aur style dete hain.",
     bookConsultation: "Consultation Book Karein",
-    joinTrainingProgram: "Training Program Join Karein",
+    joinTrainingProgram: "Silai Seekhein",
     viewPricing: "Pricing Dekhein",
     videoCaption: "Miliye Apne Expert Tailor se | Studio Showcase",
 
