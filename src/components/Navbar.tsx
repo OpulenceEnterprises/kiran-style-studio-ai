@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import ThemeToggle from "./ThemeToggle";
 import { Button } from "./ui/button";
 import { Whatsapp } from "./Whatsapp";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar: FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -21,6 +22,12 @@ const Navbar: FC = () => {
     { label: t("contact"), href: "/#contact" },
   ];
 
+  const scrollWithOffset = (el: HTMLElement) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+    const yOffset = -80; // Adjust this value to match your navbar height
+    window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
       <div className={cn(
@@ -32,7 +39,7 @@ const Navbar: FC = () => {
         "flex items-center justify-between"
       )}>
         {/* Brand */}
-        <a href="/" className="flex items-center gap-3 group">
+        <HashLink to="/" className="flex items-center gap-3 group">
           <div className={cn(
             "w-8 h-8 rounded-lg flex items-center justify-center font-bold text-lg transition-colors",
             isDark ? "bg-blue-600 text-white" : "bg-blue-600 text-white"
@@ -61,15 +68,16 @@ const Navbar: FC = () => {
               {t("brandSubtitle")}
             </span>
           </div>
-        </a>
+        </HashLink>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <ul className="flex gap-6 items-center">
             {links.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
+                <HashLink
+                  to={link.href}
+                  scroll={scrollWithOffset}
                   className={cn(
                     "font-medium transition-colors hover:scale-105 transform duration-200",
                     isDark 
@@ -78,7 +86,7 @@ const Navbar: FC = () => {
                   )}
                 >
                   {link.label}
-                </a>
+                </HashLink>
               </li>
             ))}
           </ul>
@@ -105,10 +113,10 @@ const Navbar: FC = () => {
                 </a>
             </Button>
             <Button asChild className="font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-              <a href="/training">
+              <HashLink to="/training">
                 <Scissors />
                 <span>{t("joinTraining")}</span>
-              </a>
+              </HashLink>
             </Button>
           </div>
         </div>
@@ -137,9 +145,10 @@ const Navbar: FC = () => {
         )}>
           <div className="px-4 py-6 space-y-4">
             {links.map((link) => (
-              <a
+              <HashLink
                 key={link.href}
-                href={link.href}
+                to={link.href}
+                scroll={scrollWithOffset}
                 className={cn(
                   "block py-3 px-4 rounded-lg font-medium transition-colors",
                   isDark 
@@ -149,7 +158,7 @@ const Navbar: FC = () => {
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </a>
+              </HashLink>
             ))}
             <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
             <div className="flex items-center gap-4">
@@ -168,10 +177,10 @@ const Navbar: FC = () => {
                 className="flex-1 font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 shadow-md"
                 onClick={() => setMobileOpen(false)}
               >
-                <a href="/training">
+                <HashLink to="/training">
                   <Scissors />
                   <span>{t("joinTraining")}</span>
-                </a>
+                </HashLink>
               </Button>
             </div>
           </div>
