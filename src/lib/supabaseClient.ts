@@ -1,31 +1,7 @@
 
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = 'https://uqjekcdrybwklyotxfha.supabase.co'
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxamVrY2RyeWJ3a2x5b3R4ZmhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwMTgwNjMsImV4cCI6MjA2NTU5NDA2M30.nwiBSlylD_0gPdCfzGeK2MvQKd6EZzh5fKBHXxdi3e0'
 
-let supabase: SupabaseClient
-
-if (supabaseUrl && supabaseAnonKey) {
-  supabase = createClient(supabaseUrl, supabaseAnonKey)
-} else {
-  console.error("Supabase environment variables not found. The app will run, but form submissions will fail until the Supabase connection is established. Please try refreshing the page.");
-
-  // Create a mock client to prevent the app from crashing.
-  // The functions will return an error that will be caught by react-query.
-  const mockSupabaseClient = {
-    from: () => ({
-      select: () => Promise.resolve({ error: { message: 'Supabase not configured.' } }),
-      insert: () => Promise.resolve({ error: { message: 'Supabase not configured.' } }),
-      update: () => Promise.resolve({ error: { message: 'Supabase not configured.' } }),
-      delete: () => Promise.resolve({ error: { message: 'Supabase not configured.' } }),
-    }),
-    functions: {
-      invoke: () => Promise.resolve({ error: { message: 'Supabase not configured. Please try refreshing the page.' } })
-    },
-  };
-
-  supabase = mockSupabaseClient as any;
-}
-
-export { supabase }
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
