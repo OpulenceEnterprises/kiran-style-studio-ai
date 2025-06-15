@@ -49,15 +49,15 @@ const Index = () => {
             )}>
               <div className="flex items-center gap-2">
                 <PackageCheck size={20} className="text-blue-500" />
-                <span>Online Order Tracking</span>
+                <span>{t('onlineOrderTracking')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Ruler size={20} className="text-blue-500" />
-                <span>Measurement Guides</span>
+                <span>{t('womensFitGuides')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Palette size={20} className="text-blue-500" />
-                <span>Fabric Catalog</span>
+                <span>{t('fabricCatalog')}</span>
               </div>
             </div>
           </div>

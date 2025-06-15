@@ -5,25 +5,27 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Scissors } from "lucide-react";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKey } from "@/lib/translations";
 
-const featuredProducts = [
+const featuredProductsData = [
   {
     id: 1,
-    title: "Bridal Lehenga",
+    titleKey: "bridalLehengaTitle",
     category: "Bridal",
     price: "₹15,000+",
     img: "https://images.unsplash.com/photo-1631846999951-f74e36502322?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 2,
-    title: "Formal Business Suit",
+    titleKey: "formalBusinessSuitTitle",
     category: "Formal",
     price: "₹8,000+",
     img: "https://images.unsplash.com/photo-1574785422324-4093b5db4607?auto=format&fit=crop&w=600&q=80",
   },
   {
     id: 3,
-    title: "Designer Kurti",
+    titleKey: "designerKurtiTitle",
     category: "Custom",
     price: "₹1,200+",
     img: "https://images.unsplash.com/photo-1617019772535-983b6329243a?auto=format&fit=crop&w=600&q=80",
@@ -32,6 +34,12 @@ const featuredProducts = [
 
 const ProductPreviewGrid: FC = () => {
   const { isDark } = useTheme();
+  const { t } = useLanguage();
+
+  const featuredProducts = featuredProductsData.map(p => ({
+    ...p,
+    title: t(p.titleKey as TranslationKey),
+  }));
 
   return (
     <section id="products" className={cn(
@@ -39,8 +47,8 @@ const ProductPreviewGrid: FC = () => {
       isDark ? "bg-gray-800/50 border-gray-700" : "bg-white border-gray-200"
     )}>
       <SectionHeader
-        title="Featured Products"
-        subtitle="A glimpse at our bespoke tailoring—from bridal couture to everyday wear."
+        title={t("featuredProducts")}
+        subtitle={t("featuredProductsSubtitle")}
       />
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -87,7 +95,7 @@ const ProductPreviewGrid: FC = () => {
               
               <button className="btn-primary w-full flex items-center justify-center gap-2">
                 <Scissors size={18} />
-                Request Custom Order
+                {t('requestCustomOrder')}
               </button>
             </div>
           </div>
@@ -102,7 +110,7 @@ const ProductPreviewGrid: FC = () => {
             "btn-secondary"
           )}
         >
-          View All Products
+          {t("viewAllProducts")}
           <ArrowRight size={20} />
         </Link>
       </div>

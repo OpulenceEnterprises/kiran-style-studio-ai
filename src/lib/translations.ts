@@ -14,7 +14,7 @@ export const translations = {
     // Hero Section
     heroTitle1: "Stitching Dreams,",
     heroTitle2: "Empowering Futures",
-    heroSubtitle: "Discover handcrafted apparel and learn the art of tailoring at our women-led center. Every stitch tells a story of skill and empowerment.",
+    heroSubtitle: "Discover handcrafted apparel for women and learn the art of tailoring at our women-led center. Every stitch tells a story of skill and empowerment.",
     bookConsultation: "Book Consultation",
     joinTrainingProgram: "Learn Sewing",
     viewPricing: "View Pricing",
@@ -22,7 +22,7 @@ export const translations = {
 
     // Products page
     ourProducts: "Our Products",
-    productsSubtitle: "Discover our complete range of bespoke tailoring services, from bridal couture to everyday wear.",
+    productsSubtitle: "Discover our complete range of bespoke tailoring services for women, from bridal couture to everyday wear.",
     backToHome: "Back to Home",
     requestCustomOrder: "Request Custom Order",
     
@@ -36,6 +36,12 @@ export const translations = {
 
     // Index page
     moreFeatures: "More Features Coming Soon",
+    featuredProducts: "Featured Products",
+    featuredProductsSubtitle: "A glimpse at our bespoke tailoring for women—from bridal couture to everyday wear.",
+    viewAllProducts: "View All Products",
+    onlineOrderTracking: "Online Order Tracking",
+    womensFitGuides: "Women's Fit Guides",
+    fabricCatalog: "Fabric Catalog",
     featureList: "AI Stylist • Advanced Pricing Calculator • Course Registration",
 
     // Product items
@@ -43,14 +49,14 @@ export const translations = {
     bridalLehengaDesc: "Exquisite handcrafted bridal lehenga with intricate embroidery and premium fabrics.",
     weddingSareeBlouseTitle: "Wedding Saree Blouse",
     weddingSareeBlouseDesc: "Designer blouse with heavy work for wedding sarees.",
-    formalBusinessSuitTitle: "Formal Business Suit",
-    formalBusinessSuitDesc: "Tailored formal suits for corporate professionals.",
+    formalBusinessSuitTitle: "Women's Formal Suit",
+    formalBusinessSuitDesc: "Tailored formal suits for professional women.",
     designerKurtiTitle: "Designer Kurti",
     designerKurtiDesc: "Elegant kurtis for office and formal occasions.",
-    kidsPartyDressTitle: "Kids Party Dress",
-    kidsPartyDressDesc: "Beautiful party dresses for special occasions.",
-    schoolUniformSetTitle: "School Uniform Set",
-    schoolUniformSetDesc: "Complete school uniform sets with perfect fitting.",
+    kidsPartyDressTitle: "Girls' Party Dress",
+    kidsPartyDressDesc: "Beautiful party dresses for girls for special occasions.",
+    schoolUniformSetTitle: "Girls' School Uniform",
+    schoolUniformSetDesc: "Complete school uniform sets for girls with perfect fitting.",
     customEveningGownTitle: "Custom Evening Gown",
     customEveningGownDesc: "Bespoke evening gowns designed to your specifications.",
     traditionalAnarkaliTitle: "Traditional Anarkali",
@@ -78,7 +84,7 @@ export const translations = {
     // Hero Section
     heroTitle1: "सपनों को सिलना,",
     heroTitle2: "भविष्य को सशक्त बनाना",
-    heroSubtitle: "हमारे महिला-नेतृत्व वाले केंद्र में हस्तनिर्मित परिधान खोजें और सिलाई की कला सीखें। हर सिलाई कौशल और सशक्तिकरण की कहानी कहती है।",
+    heroSubtitle: "हमारे महिला-नेतृत्व वाले केंद्र में महिलाओं के लिए हस्तनिर्मित परिधान खोजें और सिलाई की कला सीखें। हर सिलाई कौशल और सशक्तिकरण की कहानी कहती है।",
     bookConsultation: "परामर्श बुक करें",
     joinTrainingProgram: "सिलाई सीखें",
     viewPricing: "कीमतें देखें",
@@ -86,7 +92,7 @@ export const translations = {
 
     // Products page
     ourProducts: "हमारे उत्पाद",
-    productsSubtitle: "ब्राइडल वस्त्रों से लेकर रोजमर्रा के कपड़ों तक, हमारी विशेष सिलाई सेवाओं की पूरी श्रृंखला खोजें।",
+    productsSubtitle: "ब्राइडल वस्त्रों से लेकर रोजमर्रा के कपड़ों तक, महिलाओं के लिए हमारी विशेष सिलाई सेवाओं की पूरी श्रृंखला खोजें।",
     backToHome: "होम पर वापस जाएं",
     requestCustomOrder: "कस्टम ऑर्डर का अनुरोध करें",
 
@@ -100,6 +106,12 @@ export const translations = {
 
     // Index page
     moreFeatures: "और सुविधाएँ जल्द ही आ रही हैं",
+    featuredProducts: "विशेष रुप से प्रदर्शित उत्पाद",
+    featuredProductsSubtitle: "ब्राइडल वस्त्रों से लेकर रोजमर्रा के पहनने तक, महिलाओं के लिए हमारी विशेष सिलाई पर एक नज़र।",
+    viewAllProducts: "सभी उत्पाद देखें",
+    onlineOrderTracking: "ऑनलाइन ऑर्डर ट्रैकिंग",
+    womensFitGuides: "महिलाओं के फिट गाइड",
+    fabricCatalog: "फैब्रिक कैटलॉग",
     featureList: "एआई स्टाइलिस्ट • उन्नत मूल्य कैलकुलेटर • पाठ्यक्रम पंजीकरण",
 
     // Product items
@@ -107,14 +119,14 @@ export const translations = {
     bridalLehengaDesc: "उत्तम दस्तकारी दुल्हन लहंगा जिसमें जटिल कढ़ाई और प्रीमियम कपड़े हैं।",
     weddingSareeBlouseTitle: "वेडिंग साड़ी ब्लाउज",
     weddingSareeBlouseDesc: "शादी की साड़ियों के लिए भारी काम वाला डिजाइनर ब्लाउज।",
-    formalBusinessSuitTitle: "औपचारिक व्यापार सूट",
-    formalBusinessSuitDesc: "कॉर्पोरेट पेशेवरों के लिए विशेष रूप से तैयार किए गए औपचारिक सूट।",
+    formalBusinessSuitTitle: "महिलाओं का फॉर्मल सूट",
+    formalBusinessSuitDesc: "पेशेवर महिलाओं के लिए विशेष रूप से तैयार किए गए औपचारिक सूट।",
     designerKurtiTitle: "डिजाइनर कुर्ती",
     designerKurtiDesc: "कार्यालय और औपचारिक अवसरों के लिए सुरुचिपूर्ण कुर्तियां।",
-    kidsPartyDressTitle: "किड्स पार्टी ड्रेस",
-    kidsPartyDressDesc: "विशेष अवसरों के लिए सुंदर पार्टी ड्रेस।",
-    schoolUniformSetTitle: "स्कूल वर्दी सेट",
-    schoolUniformSetDesc: "पूरी तरह से फिटिंग वाले स्कूल वर्दी सेट।",
+    kidsPartyDressTitle: "लड़कियों की पार्टी ड्रेस",
+    kidsPartyDressDesc: "विशेष अवसरों के लिए लड़कियों के लिए सुंदर पार्टी ड्रेस।",
+    schoolUniformSetTitle: "लड़कियों की स्कूल वर्दी",
+    schoolUniformSetDesc: "लड़कियों के लिए पूरी तरह से फिटिंग वाले स्कूल वर्दी सेट।",
     customEveningGownTitle: "कस्टम इवनिंग गाउन",
     customEveningGownDesc: "आपकी विशिष्टताओं के अनुसार डिजाइन किए गए विशेष शाम के गाउन।",
     traditionalAnarkaliTitle: "पारंपरिक अनारकली",
@@ -142,7 +154,7 @@ export const translations = {
     // Hero Section
     heroTitle1: "Sapne Silna,",
     heroTitle2: "Bhavishya Empower Karna",
-    heroSubtitle: "Hamare women-led center mein handcrafted kapde dekhein aur tailoring ki kala seekhein. Har stitch skill aur empowerment ki kahani batata hai.",
+    heroSubtitle: "Hamare women-led center mein mahilaon ke liye handcrafted kapde dekhein aur tailoring ki kala seekhein. Har stitch skill aur empowerment ki kahani batata hai.",
     bookConsultation: "Consultation Book Karein",
     joinTrainingProgram: "Silai Seekhein",
     viewPricing: "Pricing Dekhein",
@@ -150,7 +162,7 @@ export const translations = {
 
     // Products page
     ourProducts: "Hamare Products",
-    productsSubtitle: "Bridal couture se lekar rozmarra ke pehnave tak, hamari besuited tailoring services ki poori range dekhein.",
+    productsSubtitle: "Bridal couture se lekar rozmarra ke pehnave tak, mahilaon ke liye hamari bespoke tailoring services ki poori range dekhein.",
     backToHome: "Home pe Wapas Jayein",
     requestCustomOrder: "Custom Order Request Karein",
 
@@ -164,6 +176,12 @@ export const translations = {
 
     // Index page
     moreFeatures: "Aur Features Jald hi Aa Rahe Hain",
+    featuredProducts: "Featured Products",
+    featuredProductsSubtitle: "Bridal couture se lekar rozmarra ke pehnave tak, mahilaon ke liye hamari bespoke tailoring ki ek jhalak.",
+    viewAllProducts: "Sabhi Products Dekhein",
+    onlineOrderTracking: "Online Order Tracking",
+    womensFitGuides: "Women's Fit Guides",
+    fabricCatalog: "Fabric Catalog",
     featureList: "AI Stylist • Advanced Pricing Calculator • Course Registration",
 
     // Product items
@@ -171,14 +189,14 @@ export const translations = {
     bridalLehengaDesc: "Exquisite handcrafted bridal lehenga jismein intricate embroidery aur premium fabrics hain.",
     weddingSareeBlouseTitle: "Wedding Saree Blouse",
     weddingSareeBlouseDesc: "Shaadi ki saariyon ke liye heavy work wala designer blouse.",
-    formalBusinessSuitTitle: "Formal Business Suit",
-    formalBusinessSuitDesc: "Corporate professionals ke liye tailored formal suits.",
+    formalBusinessSuitTitle: "Women's Formal Suit",
+    formalBusinessSuitDesc: "Professional mahilaon ke liye tailored formal suits.",
     designerKurtiTitle: "Designer Kurti",
     designerKurtiDesc: "Office aur formal occasions ke liye elegant kurtis.",
-    kidsPartyDressTitle: "Kids Party Dress",
-    kidsPartyDressDesc: "Khaas maukon ke liye sundar party dresses.",
-    schoolUniformSetTitle: "School Uniform Set",
-    schoolUniformSetDesc: "Perfect fitting ke saath complete school uniform sets.",
+    kidsPartyDressTitle: "Girls' Party Dress",
+    kidsPartyDressDesc: "Khaas maukon ke liye ladkiyon ke liye sundar party dresses.",
+    schoolUniformSetTitle: "Girls' School Uniform",
+    schoolUniformSetDesc: "Perfect fitting ke saath ladkiyon ke liye complete school uniform sets.",
     customEveningGownTitle: "Custom Evening Gown",
     customEveningGownDesc: "Aapke specifications ke anusaar design kiye gaye bespoke evening gowns.",
     traditionalAnarkaliTitle: "Traditional Anarkali",
