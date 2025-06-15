@@ -1,11 +1,10 @@
 
 import { FC, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Scissors } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/contexts/ThemeContext";
-import ThemeToggle from "./ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
-import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 import { Button } from "./ui/button";
 import { Whatsapp } from "./Whatsapp";
 
@@ -85,13 +84,12 @@ const Navbar: FC = () => {
           </ul>
           
           <div className="flex items-center gap-1">
-            <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           <div className="h-6 w-px bg-gray-300 dark:bg-gray-700"></div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" asChild>
                 <a
                     href="https://wa.me/919999999999"
@@ -106,18 +104,17 @@ const Navbar: FC = () => {
                     <Whatsapp className="h-6 w-6" />
                 </a>
             </Button>
-            <a
-              href="/training"
-              className="btn-primary"
-            >
-              {t("joinTraining")}
-            </a>
+            <Button asChild className="font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+              <a href="/training">
+                <Scissors />
+                <span>{t("joinTraining")}</span>
+              </a>
+            </Button>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-1">
-          <LanguageSwitcher />
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -166,13 +163,16 @@ const Navbar: FC = () => {
                 <Whatsapp className="h-5 w-5" />
                 WhatsApp
               </a>
-              <a
-                href="/training"
-                className="btn-primary flex-1 text-center"
+              <Button
+                asChild
+                className="flex-1 font-semibold"
                 onClick={() => setMobileOpen(false)}
               >
-                {t("joinTraining")}
-              </a>
+                <a href="/training">
+                  <Scissors />
+                  <span>{t("joinTraining")}</span>
+                </a>
+              </Button>
             </div>
           </div>
         </div>
