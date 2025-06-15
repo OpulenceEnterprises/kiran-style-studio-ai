@@ -1,4 +1,3 @@
-
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -35,7 +34,7 @@ const sendInquiryEmail = async (formData: InquiryFormValues) => {
   
   const fromEmail = formData.email || 'no-reply@suidhaga-empower.com';
 
-  const { error } = await supabase.functions.invoke('send-email', {
+  const { data, error } = await supabase.functions.invoke('send-email', {
     body: JSON.stringify({
       subject: 'New Training Program Inquiry',
       htmlBody,
@@ -47,6 +46,8 @@ const sendInquiryEmail = async (formData: InquiryFormValues) => {
   if (error) {
     throw new Error(`Failed to send inquiry: ${error.message}`);
   }
+
+  return data;
 };
 
 const TrainingInquiryForm: FC = () => {

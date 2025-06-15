@@ -1,4 +1,3 @@
-
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,7 +35,7 @@ const sendEmail = async (formData: ContactFormValues) => {
 
   const fromEmail = formData.email || 'no-reply@suidhaga-empower.com';
 
-  const { error } = await supabase.functions.invoke('send-email', {
+  const { data, error } = await supabase.functions.invoke('send-email', {
     body: JSON.stringify({
       subject: 'New Contact Form Submission from Website',
       htmlBody,
@@ -48,6 +47,8 @@ const sendEmail = async (formData: ContactFormValues) => {
   if (error) {
     throw new Error(`Failed to send email: ${error.message}`);
   }
+
+  return data;
 };
 
 const ContactFormComponent: FC = () => {
@@ -176,4 +177,3 @@ const ContactFormComponent: FC = () => {
 }
 
 export default ContactFormComponent;
-
