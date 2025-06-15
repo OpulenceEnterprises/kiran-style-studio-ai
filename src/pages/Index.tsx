@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import ProductPreviewGrid from "@/components/ProductPreviewGrid";
 import PricingTable from "@/components/PricingTable";
+import ContactForm from "@/components/ContactForm";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 
@@ -24,6 +25,7 @@ const Index = () => {
           <PricingTable />
           <ProductPreviewGrid />
           <Testimonials />
+          <ContactForm />
         </div>
 
         {/* Coming Soon Section */}
@@ -42,7 +44,7 @@ const Index = () => {
               "text-lg",
               isDark ? "text-gray-400" : "text-gray-600"
             )}>
-              AI Stylist • Advanced Pricing Calculator • Course Registration • Contact & Location
+              AI Stylist • Advanced Pricing Calculator • Course Registration
             </p>
           </div>
         </section>

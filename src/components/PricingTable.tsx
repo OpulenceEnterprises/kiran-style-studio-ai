@@ -1,6 +1,9 @@
 
 import { FC } from "react";
 import SectionHeader from "./SectionHeader";
+import { useTheme } from "@/contexts/ThemeContext";
+import { cn } from "@/lib/utils";
+import { MessageCircle } from "lucide-react";
 
 const pricing = [
   {
@@ -35,48 +38,101 @@ const pricing = [
   }
 ];
 
-const PricingTable: FC = () => (
-  <section
-    id="pricing"
-    className="section-bg bg-gradient-to-b from-blush-light/60 via-white to-cream-light border border-blush-light my-10 animate-fade-in shadow-lux-glass"
-  >
-    <SectionHeader
-      title="Transparent Pricing"
-      subtitle="No surprises. All prices include consultation and custom fittings."
-    />
-    <div className="max-w-2xl mx-auto">
-      <div className="overflow-hidden rounded-2xl shadow-lux-glass border bg-white/90">
-        <table className="w-full text-base font-poppins">
-          <thead>
-            <tr className="bg-blush-light/80 text-blush-DEFAULT">
-              <th className="py-3 px-3 text-left">Service</th>
-              <th className="py-3 px-2 text-left">Details</th>
-              <th className="py-3 px-2 text-right">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pricing.map((p) => (
-              <tr
-                key={p.service}
-                className="border-t border-blush-light hover:bg-sand-light/50 transition"
-              >
-                <td className="py-2 px-3 font-semibold">{p.service}</td>
-                <td className="py-2 px-2 text-gray-600">{p.description}</td>
-                <td className="py-2 px-2 text-right font-bold text-teal-DEFAULT">{p.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+const PricingTable: FC = () => {
+  const { isDark } = useTheme();
+
+  const handleWhatsAppContact = () => {
+    const message = encodeURIComponent("Hi! I'd like to get a quote for bulk/bridal/unique work. Please provide pricing details.");
+    window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${message}`, '_blank');
+  };
+
+  return (
+    <section id="pricing" className={cn(
+      "section-bg py-16 px-8",
+      isDark ? "bg-gray-800/50 border-gray-700" : "bg-white border-gray-200"
+    )}>
+      <SectionHeader
+        title="Transparent Pricing"
+        subtitle="No surprises. All prices include consultation and custom fittings."
+      />
+      <div className="max-w-4xl mx-auto">
+        <div className={cn(
+          "overflow-hidden rounded-2xl shadow-lg border",
+          isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
+        )}>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm md:text-base">
+              <thead>
+                <tr className={cn(
+                  "border-b",
+                  isDark ? "bg-gray-700 text-blue-400 border-gray-600" : "bg-blue-50 text-blue-800 border-blue-200"
+                )}>
+                  <th className="py-4 px-4 text-left font-semibold">Service</th>
+                  <th className="py-4 px-4 text-left font-semibold">Details</th>
+                  <th className="py-4 px-4 text-right font-semibold">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pricing.map((p, index) => (
+                  <tr
+                    key={p.service}
+                    className={cn(
+                      "border-b transition-colors",
+                      isDark 
+                        ? "border-gray-700 hover:bg-gray-700/50" 
+                        : "border-gray-100 hover:bg-gray-50",
+                      index % 2 === 0 
+                        ? isDark ? "bg-gray-800/30" : "bg-gray-50/30"
+                        : ""
+                    )}
+                  >
+                    <td className={cn(
+                      "py-4 px-4 font-semibold",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}>
+                      {p.service}
+                    </td>
+                    <td className={cn(
+                      "py-4 px-4",
+                      isDark ? "text-gray-300" : "text-gray-600"
+                    )}>
+                      {p.description}
+                    </td>
+                    <td className={cn(
+                      "py-4 px-4 text-right font-bold text-lg",
+                      isDark ? "text-blue-400" : "text-blue-600"
+                    )}>
+                      {p.price}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div className="mt-8 text-center">
+          <div className={cn(
+            "mb-6 text-sm",
+            isDark ? "text-gray-400" : "text-gray-600"
+          )}>
+            For bulk, bridal or unique work, get a personalized quote
+          </div>
+          
+          <button
+            onClick={handleWhatsAppContact}
+            className={cn(
+              "inline-flex items-center gap-3 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105",
+              "bg-green-600 hover:bg-green-700 text-white"
+            )}
+          >
+            <MessageCircle size={24} />
+            Contact via WhatsApp for Custom Quote
+          </button>
+        </div>
       </div>
-      <div className="mt-3 text-xs text-center text-gray-500">
-        For bulk, bridal or unique work,{" "}
-        <a href="#contact" className="underline text-teal-DEFAULT">
-          contact us for a quote
-        </a>
-        .
-      </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default PricingTable;
