@@ -1,3 +1,4 @@
+
 import { FC, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -66,14 +67,13 @@ const TrainingInquiryForm: FC = () => {
           "block text-sm font-medium mb-2",
           isDark ? "text-gray-300" : "text-gray-700"
         )}>
-          Email Address *
+          Email Address (Optional)
         </label>
         <Input
           name="email"
           type="email"
           value={formData.email}
           onChange={handleChange}
-          required
           className={cn(isDark ? "bg-gray-700 border-gray-600 text-white" : "bg-white")}
         />
       </div>
