@@ -3,7 +3,8 @@ import { FC } from "react";
 import SectionHeader from "./SectionHeader";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
-import { MessageCircle, Shirt, Scissors, Tag, Zap } from "lucide-react";
+import { Shirt, Scissors, Tag, Zap } from "lucide-react";
+import { Whatsapp } from "./Whatsapp";
 
 const pricing = [
   {
@@ -49,7 +50,7 @@ const PricingTable: FC = () => {
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hi! I'd like to get a quote for bulk/bridal/unique work. Please provide pricing details.");
-    window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${message}`, '_blank');
+    window.open(`https://wa.me/919263267023?text=${message}`, '_blank');
   };
 
   return (
@@ -135,7 +136,7 @@ const PricingTable: FC = () => {
               "bg-green-600 hover:bg-green-700 text-white"
             )}
           >
-            <MessageCircle size={24} />
+            <Whatsapp className="h-6 w-6" />
             Contact via WhatsApp for Custom Quote
           </button>
         </div>
