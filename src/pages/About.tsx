@@ -43,7 +43,7 @@ const About: FC = () => {
 
             <div className="order-1 md:order-2">
               <img 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                src="/lovable-uploads/0cc43818-a88a-46a2-9e27-409e81421141.png"
                 alt="Kiran Devi"
                 className="rounded-lg shadow-xl w-full h-auto object-cover aspect-square"
               />
