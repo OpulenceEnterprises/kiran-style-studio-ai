@@ -1,3 +1,4 @@
+
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -7,6 +8,7 @@ import { Whatsapp } from "./Whatsapp";
 import SectionHeader from "./SectionHeader";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 
 const featuredProductsData = [
   {
@@ -32,8 +34,6 @@ const featuredProductsData = [
   },
 ];
 
-const WHATSAPP_NUMBER = "911234567890"; // Please replace with your WhatsApp number
-
 const ProductPreviewGrid: FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
@@ -55,7 +55,7 @@ const ProductPreviewGrid: FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {featuredProducts.map((product) => {
-          const message = `Hello, I would like to request a custom order for the following product: ${product.title}.`;
+          const message = `Hello, I'm interested in the ${product.title}. Could you please provide more details about its design and price? Thank you!`;
           const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
           return (

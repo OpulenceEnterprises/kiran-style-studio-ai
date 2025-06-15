@@ -1,4 +1,3 @@
-
 import { FC, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
@@ -8,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { TranslationKey } from "@/lib/translations";
 import Navbar from "@/components/Navbar";
 import { Whatsapp } from "@/components/Whatsapp";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 
 const categories = [
   { labelKey: "all", filterValue: "All" },
@@ -85,8 +85,6 @@ const allProductsData = [
   },
 ];
 
-const WHATSAPP_NUMBER = "911234567890"; // Please replace with your WhatsApp number
-
 const Products: FC = () => {
   const { isDark } = useTheme();
   const { t } = useLanguage();
@@ -160,7 +158,7 @@ const Products: FC = () => {
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredProducts.map((product) => {
-              const message = `Hello, I would like to request a custom order for the following product: ${product.title}.`;
+              const message = `Hello, I'm interested in the ${product.title}. Could you please provide more details about its design and price? Thank you!`;
               const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
               return (
               <div
